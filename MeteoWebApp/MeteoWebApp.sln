@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeteoWebApp.Web", "MeteoWebApp.Web\MeteoWebApp.Web.csproj", "{06E7DE0F-F807-4261-A756-5A70ADE6C832}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeteoWebApp.Infrastructure", "MeteoWebApp.Infrastructure\MeteoWebApp.Infrastructure.csproj", "{F27EA4AC-2342-45D4-A8C8-AD64B8CFC8A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeteoWebApp.Data", "MeteoWebApp.Data\MeteoWebApp.Data.csproj", "{BC3800FD-1444-4A61-B247-0481B719BD88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06E7DE0F-F807-4261-A756-5A70ADE6C832}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06E7DE0F-F807-4261-A756-5A70ADE6C832}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06E7DE0F-F807-4261-A756-5A70ADE6C832}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06E7DE0F-F807-4261-A756-5A70ADE6C832}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F27EA4AC-2342-45D4-A8C8-AD64B8CFC8A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F27EA4AC-2342-45D4-A8C8-AD64B8CFC8A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F27EA4AC-2342-45D4-A8C8-AD64B8CFC8A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F27EA4AC-2342-45D4-A8C8-AD64B8CFC8A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC3800FD-1444-4A61-B247-0481B719BD88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC3800FD-1444-4A61-B247-0481B719BD88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC3800FD-1444-4A61-B247-0481B719BD88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC3800FD-1444-4A61-B247-0481B719BD88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
