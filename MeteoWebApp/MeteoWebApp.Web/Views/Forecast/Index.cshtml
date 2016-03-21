@@ -1,0 +1,22 @@
+﻿@model MeteoWebApp.Web.Models.ForecastViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Vremenska prognoza - <span>@Model.City</span></h2>
+
+@Html.RouteLink("Prethodnih tjedan dana", "ViewForecast", new { CityId = @Model.CityId, FirstDate = @Model.FirstDate.AddDays(-7)})
+@Html.RouteLink("Idućih tjedan dana", "ViewForecast", new { CityId = @Model.CityId, FirstDate = @Model.FirstDate.AddDays(7) })
+
+@if(Model.Forecasts != null)
+{
+    foreach(var forecast in @Model.Forecasts)
+    {
+        <p>@forecast.Temperature °C</p>
+        <p>@forecast.Time.ToString("dd.MM.yyyy")</p>
+    }
+}
+else
+{
+    <p>Nema podataka za traženi period</p>
+}

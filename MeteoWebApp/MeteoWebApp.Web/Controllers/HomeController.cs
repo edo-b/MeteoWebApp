@@ -11,9 +11,9 @@ namespace MeteoWebApp.Web.Controllers
         //
         // GET: /Home/
 
-        public string Index()
+        public ActionResult Index()
         {
-            return "Test";
+            return RedirectToRoute("ViewForecast", new { CityId = 1 });
         }
 
     }

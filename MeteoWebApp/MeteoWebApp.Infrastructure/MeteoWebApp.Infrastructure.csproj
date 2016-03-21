@@ -47,6 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="City\ICity.cs" />
+    <Compile Include="City\ICityCommands.cs" />
+    <Compile Include="City\ICityQueries.cs" />
+    <Compile Include="City\Impl\City.cs" />
+    <Compile Include="City\Impl\CityCommands.cs" />
+    <Compile Include="City\Impl\CityQueries.cs" />
+    <Compile Include="Forecast\IForecast.cs" />
+    <Compile Include="Forecast\IForecastCommands.cs" />
+    <Compile Include="Forecast\IForecastQueries.cs" />
+    <Compile Include="Forecast\Impl\ForecastCommands.cs" />
+    <Compile Include="Forecast\Impl\Forecast.cs" />
+    <Compile Include="Forecast\Impl\ForecastQueries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
