@@ -19,9 +19,12 @@ namespace MeteoWebApp.Data
         public int GeneralState { get; set; }
         public int WindDirection { get; set; }
         public int WindSpeed { get; set; }
-        public System.DateTimeOffset Time { get; set; }
+        public System.DateTimeOffset Date { get; set; }
         public int RainChance { get; set; }
         public int CityId { get; set; }
+        public string GeneralStateImageUrl { get; set; }
+        public string GeneralStateCaption { get; set; }
+        public string WindDirectionImageUrl { get; set; }
     
         public virtual City City { get; set; }
     }

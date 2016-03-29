@@ -13,19 +13,23 @@ namespace MeteoWebApp.Infrastructure.Forecast
         {
             using(var db = new DatabaseModelContainer())
             {
+                var endDate = firstDate.AddDays(7);
+
                 var dbForecast = db.Forecasts
-                                    .OrderBy(x => x.Time)
-                                    .Where(x => (x.Time > firstDate) && x.CityId == cityId)
-                                    .Take(7)
+                                    .OrderBy(x => x.Date)
+                                    .Where(x => x.CityId == cityId && (x.Date >= firstDate) && (x.Date < endDate))
                                     .Select(forecast => new Forecast
                                     {
                                         Id = forecast.Id,
                                         GeneralState = forecast.GeneralState,
                                         RainChance = forecast.RainChance,
                                         Temperature = forecast.Temperature,
-                                        Time = forecast.Time,
+                                        Date = forecast.Date,
                                         WindDirection = forecast.WindDirection,
-                                        WindSpeed = forecast.WindSpeed
+                                        WindSpeed = forecast.WindSpeed,
+                                        WindDirectionImageUrl = forecast.WindDirectionImageUrl,
+                                        GeneralStateCaption = forecast.GeneralStateCaption,
+                                        GeneralStateImageUrl = forecast.GeneralStateImageUrl
                                     });
                 if(dbForecast != null)
                 {

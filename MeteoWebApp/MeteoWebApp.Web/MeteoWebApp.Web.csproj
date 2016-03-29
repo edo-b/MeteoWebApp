@@ -127,6 +127,18 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\Images\WeatherImages\Status-weather-clear-icon.png" />
+    <Content Include="Content\Images\WeatherImages\Status-weather-clouds-icon.png" />
+    <Content Include="Content\Images\WeatherImages\Status-weather-many-clouds-icon.png" />
+    <Content Include="Content\Images\WeatherImages\Status-weather-showers-day-icon.png" />
+    <Content Include="Content\Images\WeatherImages\Status-weather-showers-scattered-icon.png" />
+    <Content Include="Content\Images\WeatherImages\Status-weather-snow-scattered-icon.png" />
+    <Content Include="Content\Images\WeatherImages\Status-weather-storm-night-icon.png" />
+    <Content Include="Content\Images\WindArrows\Arrows-Right-icon.png" />
+    <Content Include="Content\Scripts\bootstrap.min.js" />
+    <Content Include="Content\Scripts\ForecastScript.js" />
+    <Content Include="Content\Styles\bootstrap.min.css" />
+    <Content Include="Content\Styles\ForecastStyle.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -155,6 +167,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Forecast\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\_ViewStart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

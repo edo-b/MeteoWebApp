@@ -1,0 +1,15 @@
+.dropdown-menu>li>a:hover {
+	  color: #ffffff;
+	  text-decoration: none;
+	  background-color: #0081c2;
+}
+.table tbody>tr>td{
+    vertical-align: middle;
+    font-size:18px;
+}
+.table{
+    margin-top:50px;
+}
+.alert{
+    margin-top:50px;
+}

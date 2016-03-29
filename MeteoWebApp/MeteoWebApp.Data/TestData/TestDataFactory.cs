@@ -66,8 +66,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 20,
                     WindDirection = 1,
                     WindSpeed = 0,
-                    Time = new DateTime(2016, 3, 16),
-                    CityId = 1
+                    Date = new DateTime(2016, 3, 16),
+                    CityId = 1,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -77,8 +80,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 0,
                     WindDirection = 0,
                     WindSpeed = 4,
-                    Time = new DateTime(2016, 3, 16),
-                    CityId = 2
+                    Date = new DateTime(2016, 3, 16),
+                    CityId = 2,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -88,8 +94,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 2,
                     WindDirection = 2,
                     WindSpeed = 20,
-                    Time = new DateTime(2016, 3, 16),
-                    CityId = 3
+                    Date = new DateTime(2016, 3, 16),
+                    CityId = 3,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -99,8 +108,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 60,
                     WindDirection = 3,
                     WindSpeed = 11,
-                    Time = new DateTime(2016, 3, 16),
-                    CityId = 4
+                    Date = new DateTime(2016, 3, 16),
+                    CityId = 4,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -110,8 +122,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 50,
                     WindDirection = 1,
                     WindSpeed = 3,
-                    Time = new DateTime(2016, 3, 16),
-                    CityId = 5
+                    Date = new DateTime(2016, 3, 16),
+                    CityId = 5,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -121,8 +136,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 80,
                     WindDirection = 2,
                     WindSpeed = 6,
-                    Time = new DateTime(2016, 3, 17),
-                    CityId = 1
+                    Date = new DateTime(2016, 3, 17),
+                    CityId = 1,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -132,8 +150,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 100,
                     WindDirection = 0,
                     WindSpeed = 21,
-                    Time = new DateTime(2016, 3, 17),
-                    CityId = 2
+                    Date = new DateTime(2016, 3, 17),
+                    CityId = 2,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -143,8 +164,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 25,
                     WindDirection = 3,
                     WindSpeed = 15,
-                    Time = new DateTime(2016, 3, 17),
-                    CityId = 3
+                    Date = new DateTime(2016, 3, 17),
+                    CityId = 3,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -154,8 +178,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 0,
                     WindDirection = 5,
                     WindSpeed = 18,
-                    Time = new DateTime(2016, 3, 17),
-                    CityId = 4
+                    Date = new DateTime(2016, 3, 17),
+                    CityId = 4,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -165,8 +192,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 15,
                     WindDirection = 7,
                     WindSpeed = 9,
-                    Time = new DateTime(2016, 3, 17),
-                    CityId = 5
+                    Date = new DateTime(2016, 3, 17),
+                    CityId = 5,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -176,8 +206,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 45,
                     WindDirection = 6,
                     WindSpeed = 0,
-                    Time = new DateTime(2016, 3, 18),
-                    CityId = 1
+                    Date = new DateTime(2016, 3, 18),
+                    CityId = 1,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -187,8 +220,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 25,
                     WindDirection = 1,
                     WindSpeed = 10,
-                    Time = new DateTime(2016, 3, 18),
-                    CityId = 2
+                    Date = new DateTime(2016, 3, 18),
+                    CityId = 2,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -198,8 +234,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 20,
                     WindDirection = 8,
                     WindSpeed = 8,
-                    Time = new DateTime(2016, 3, 18),
-                    CityId = 3
+                    Date = new DateTime(2016, 3, 18),
+                    CityId = 3,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -209,8 +248,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 30,
                     WindDirection = 0,
                     WindSpeed = 24,
-                    Time = new DateTime(2016, 3, 18),
-                    CityId = 4
+                    Date = new DateTime(2016, 3, 18),
+                    CityId = 4,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -220,8 +262,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 67,
                     WindDirection = 1,
                     WindSpeed = 0,
-                    Time = new DateTime(2016, 3, 18),
-                    CityId = 5
+                    Date = new DateTime(2016, 3, 18),
+                    CityId = 5,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -231,8 +276,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 32,
                     WindDirection = 4,
                     WindSpeed = 0,
-                    Time = new DateTime(2016, 3, 19),
-                    CityId = 1
+                    Date = new DateTime(2016, 3, 19),
+                    CityId = 1,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -242,8 +290,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 28,
                     WindDirection = 5,
                     WindSpeed = 6,
-                    Time = new DateTime(2016, 3, 19),
-                    CityId = 2
+                    Date = new DateTime(2016, 3, 19),
+                    CityId = 2,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -253,8 +304,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 0,
                     WindDirection = 3,
                     WindSpeed = 5,
-                    Time = new DateTime(2016, 3, 19),
-                    CityId = 3
+                    Date = new DateTime(2016, 3, 19),
+                    CityId = 3,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -264,8 +318,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 0,
                     WindDirection = 2,
                     WindSpeed = 7,
-                    Time = new DateTime(2016, 3, 19),
-                    CityId = 4
+                    Date = new DateTime(2016, 3, 19),
+                    CityId = 4,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 },
                 new Forecast
                 {
@@ -275,8 +332,11 @@ namespace MeteoWebApp.Data.TestDataFactory
                     RainChance = 0,
                     WindDirection = 7,
                     WindSpeed = 0,
-                    Time = new DateTime(2016, 3, 19),
-                    CityId = 4
+                    Date = new DateTime(2016, 3, 19),
+                    CityId = 4,
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
+                    GeneralStateCaption = "Clear",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
                 }
             }.ToList().ForEach(forecast => db.Forecasts.Add(forecast));
         }

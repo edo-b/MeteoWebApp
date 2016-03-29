@@ -29,9 +29,12 @@
     <Property Name="GeneralState" Type="int" Nullable="false" />
     <Property Name="WindDirection" Type="int" Nullable="false" />
     <Property Name="WindSpeed" Type="int" Nullable="false" />
-    <Property Name="Time" Type="datetimeoffset" Nullable="false" />
+    <Property Name="Date" Type="datetimeoffset" Nullable="false" />
     <Property Name="RainChance" Type="int" Nullable="false" />
     <Property Name="CityId" Type="int" Nullable="false" />
+    <Property Name="GeneralStateImageUrl" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="GeneralStateCaption" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="WindDirectionImageUrl" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="CityForecast">
     <End Role="City" Type="DatabaseModel.Store.Cities" Multiplicity="1" />
@@ -74,10 +77,13 @@
           <Property Name="GeneralState" Type="Int32" Nullable="false" />
           <Property Name="WindDirection" Type="Int32" Nullable="false" />
           <Property Name="WindSpeed" Type="Int32" Nullable="false" />
-          <Property Name="Time" Type="DateTimeOffset" Nullable="false" />
+          <Property Name="Date" Type="DateTimeOffset" Nullable="false" />
           <Property Name="RainChance" Type="Int32" Nullable="false" />
           <NavigationProperty Name="City" Relationship="DatabaseModel.CityForecast" FromRole="Forecast" ToRole="City" />
           <Property Name="CityId" Type="Int32" Nullable="false" />
+          <Property Name="GeneralStateImageUrl" Type="String" Nullable="false" />
+          <Property Name="GeneralStateCaption" Type="String" Nullable="false" />
+          <Property Name="WindDirectionImageUrl" Type="String" Nullable="false" />
         </EntityType>
         <Association Name="CityForecast">
           <End Type="DatabaseModel.City" Role="City" Multiplicity="1" />
@@ -113,9 +119,12 @@
           <ScalarProperty Name="GeneralState" ColumnName="GeneralState" />
           <ScalarProperty Name="WindDirection" ColumnName="WindDirection" />
           <ScalarProperty Name="WindSpeed" ColumnName="WindSpeed" />
-          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="RainChance" ColumnName="RainChance" />
           <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="GeneralStateImageUrl" ColumnName="GeneralStateImageUrl" />
+          <ScalarProperty Name="GeneralStateCaption" ColumnName="GeneralStateCaption" />
+          <ScalarProperty Name="WindDirectionImageUrl" ColumnName="WindDirectionImageUrl" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

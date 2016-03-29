@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/16/2016 19:28:13
+-- Date Created: 03/26/2016 18:40:59
 -- Generated from EDMX file: D:\Users\Edo\Desktop\Edo\Programi\MeteoWebApp\MeteoWebApp\MeteoWebApp.Data\DatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -50,9 +50,12 @@ CREATE TABLE [dbo].[Forecasts] (
     [GeneralState] int  NOT NULL,
     [WindDirection] int  NOT NULL,
     [WindSpeed] int  NOT NULL,
-    [Time] datetimeoffset  NOT NULL,
+    [Date] datetimeoffset  NOT NULL,
     [RainChance] int  NOT NULL,
-    [CityId] int  NOT NULL
+    [CityId] int  NOT NULL,
+    [GeneralStateImageUrl] nvarchar(max)  NOT NULL,
+    [GeneralStateCaption] nvarchar(max)  NOT NULL,
+    [WindDirectionImageUrl] nvarchar(max)  NOT NULL
 );
 GO
 
