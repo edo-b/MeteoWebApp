@@ -25,5 +25,19 @@ namespace MeteoWebApp.Infrastructure.City
                 return null;
             }
         }
+
+        public IEnumerable<ICity> GetAllCities()
+        {
+            using(var db = new DatabaseModelContainer())
+            {
+                var data = db.Cities.Select(x => new City
+                {
+                    Id = x.Id,
+                    Name = x.Name
+                }).ToList();
+
+                return data;
+            }
+        }
     }
 }

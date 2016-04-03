@@ -8,5 +8,7 @@ namespace MeteoWebApp.Infrastructure.City
 {
     public interface ICity
     {
+        int     Id      { get; set; }
+        string  Name    { get; set; }
     }
 }

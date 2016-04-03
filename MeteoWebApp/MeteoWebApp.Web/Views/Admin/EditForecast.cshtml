@@ -1,15 +1,16 @@
 ﻿@model MeteoWebApp.Web.Models.ForecastViewModel
 @{
-    ViewBag.Title = "Prognoza | WebMeteoApp";
+    ViewBag.Title = "EditForecast";
 }
 
-<h2>Vremenska prognoza - <span>@Model.City</span></h2>
+<h2>Uredi prognozu - @Model.City</h2>
+
 <div class="row">
     <div class="pull-left">
-        @Html.RouteLink("Prethodnih tjedan dana", "ViewForecast", new { CityId = @Model.CityId, FirstDate = @Model.FirstDate.AddDays(-7) })
+        @Html.RouteLink("Prethodnih tjedan dana", "EditForecast", new { CityId = @Model.CityId, FirstDate = @Model.FirstDate.AddDays(-7) })
     </div>
     <div class="pull-right">
-        @Html.RouteLink("Idućih tjedan dana", "ViewForecast", new { CityId = @Model.CityId, FirstDate = @Model.FirstDate.AddDays(7) })
+        @Html.RouteLink("Idućih tjedan dana", "EditForecast", new { CityId = @Model.CityId, FirstDate = @Model.FirstDate.AddDays(7) })
     </div>
 </div>
 @if (Model.Forecasts != null && Model.Forecasts.Any())
@@ -19,7 +20,7 @@
         <table class="table table-striped">
             @foreach (var forecast in @Model.Forecasts)
             {
-                <tr class = @(forecast.Date == DateTime.Now ? "success" : "" )>
+                <tr class=@(forecast.Date == DateTime.Now ? "success" : "" )>
                     <td>@forecast.Date.ToString("dd.MM.yyyy")</td>
                     <td>
                         <img class="img-responsive" src="@forecast.GeneralStateImageUrl" data-toggle="tooltip" title="@forecast.GeneralStateCaption" data-placement="right" />
@@ -29,6 +30,12 @@
                     <td>
                         <img class="img-responsive wind-speed-image" src="@forecast.WindDirectionImageUrl" />
                         (@forecast.WindSpeed)
+                    </td>
+                    <td>
+                        <a><img src="~/Content/Images/OtherIcons/1459726611_icon-136-document-edit.png">@Html.RouteLink("Uredi", "EditForecastRecord", new { CityId = @Model.CityId, ForecastRecordId = forecast.Id})</a>
+                    </td>
+                    <td>
+                        <a><img src="~/Content/Images/OtherIcons/1459726547_circle-close-delete-remove-outline-stroke.png">@Html.RouteLink("Izbriši", "DeleteForecastRecord", new { CityId = @Model.CityId, ForecastRecordId = forecast.Id })</a>
                     </td>
                 </tr>
             }

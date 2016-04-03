@@ -115,11 +115,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ForecastController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AdminCitiesViewModel.cs" />
     <Compile Include="Models\ForecastViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -127,6 +129,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\Images\OtherIcons\1459726547_circle-close-delete-remove-outline-stroke.png" />
+    <Content Include="Content\Images\OtherIcons\1459726611_icon-136-document-edit.png" />
+    <Content Include="Content\Images\OtherIcons\rain-icon.png" />
     <Content Include="Content\Images\WeatherImages\Status-weather-clear-icon.png" />
     <Content Include="Content\Images\WeatherImages\Status-weather-clouds-icon.png" />
     <Content Include="Content\Images\WeatherImages\Status-weather-many-clouds-icon.png" />
@@ -173,6 +178,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\EditForecast.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -7,12 +7,13 @@
     <link href="@Url.Content("~/Content/Styles/bootstrap.min.css")" rel="stylesheet">
     @RenderSection("Css", false)
     <title>@ViewBag.Title</title>
+    <link rel="icon" href="@Url.Content("~/Content/Images/OtherIcons/rain-icon.png")">
 </head>
 <body>
     <!--Navigation bar-->
     <div class="navbar navbar-default navbar-static-top">
         <div class="container">
-            <a href="@Url.RouteUrl("Default")" class="navbar-brand">WebMeteoApp</a>
+            <a href="@Url.RouteUrl("ViewForecast", new { CityId = 1})" class="navbar-brand">WebMeteoApp</a>
             <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -33,12 +34,11 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <a href="#" class="btn btn-success navbar-btn">Login</a>
+                    <a href="@Url.RouteUrl("AdminCities")" class="btn btn-success navbar-btn">Admin</a>
                 </ul>
             </div>
         </div>
     </div>
-    <!--Navigation bar end-->
 
     <!--Page content-->
     <div class="container">

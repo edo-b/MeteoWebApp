@@ -1,0 +1,13 @@
+﻿@model MeteoWebApp.Web.Models.AdminCitiesViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Gradovi</h2>
+
+@foreach(var city in @Model.Cities)
+{
+    <div class="panel panel-primary">
+        <a href="@Url.Action("EditForecast", new { CityId = city.Id})" class="panel-heading">@city.Name</a>
+    </div>
+}

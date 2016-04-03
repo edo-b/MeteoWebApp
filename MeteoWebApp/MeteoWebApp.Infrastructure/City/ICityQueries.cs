@@ -9,5 +9,6 @@ namespace MeteoWebApp.Infrastructure.City
     public interface ICityQueries
     {
         string GetCityNameById(int cityId);
+        IEnumerable<ICity> GetAllCities();
     }
 }
