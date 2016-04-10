@@ -122,6 +122,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AdminCitiesViewModel.cs" />
+    <Compile Include="Models\CreateForecastViewModel.cs" />
+    <Compile Include="Models\DeleteForecastViewModel.cs" />
     <Compile Include="Models\ForecastViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -129,8 +131,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Content\Images\OtherIcons\1459726547_circle-close-delete-remove-outline-stroke.png" />
     <Content Include="Content\Images\OtherIcons\1459726611_icon-136-document-edit.png" />
+    <Content Include="Content\Images\OtherIcons\1459981345_free-27.png" />
     <Content Include="Content\Images\OtherIcons\rain-icon.png" />
     <Content Include="Content\Images\WeatherImages\Status-weather-clear-icon.png" />
     <Content Include="Content\Images\WeatherImages\Status-weather-clouds-icon.png" />
@@ -141,6 +143,7 @@
     <Content Include="Content\Images\WeatherImages\Status-weather-storm-night-icon.png" />
     <Content Include="Content\Images\WindArrows\Arrows-Right-icon.png" />
     <Content Include="Content\Scripts\bootstrap.min.js" />
+    <Content Include="Content\Scripts\EditForecastScript.js" />
     <Content Include="Content\Scripts\ForecastScript.js" />
     <Content Include="Content\Styles\bootstrap.min.css" />
     <Content Include="Content\Styles\ForecastStyle.css" />

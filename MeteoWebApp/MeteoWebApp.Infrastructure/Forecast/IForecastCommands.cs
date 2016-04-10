@@ -8,5 +8,6 @@ namespace MeteoWebApp.Infrastructure.Forecast
 {
     public interface IForecastCommands
     {
+        void DeleteForecastRecord(int ForecastRecordId);
     }
 }
