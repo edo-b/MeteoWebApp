@@ -69,8 +69,8 @@ namespace MeteoWebApp.Data.TestDataFactory
                     Date = new DateTime(2016, 3, 16),
                     CityId = 1,
                     GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateCaption = "Sunčano",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowRight.png"
                 },
                 new Forecast
                 {
@@ -83,8 +83,8 @@ namespace MeteoWebApp.Data.TestDataFactory
                     Date = new DateTime(2016, 3, 16),
                     CityId = 2,
                     GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateCaption = "Sunčano",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowLeft.png"
                 },
                 new Forecast
                 {
@@ -97,8 +97,8 @@ namespace MeteoWebApp.Data.TestDataFactory
                     Date = new DateTime(2016, 3, 16),
                     CityId = 3,
                     GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateCaption = "Sunčano",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowUp.png"
                 },
                 new Forecast
                 {
@@ -111,8 +111,8 @@ namespace MeteoWebApp.Data.TestDataFactory
                     Date = new DateTime(2016, 3, 16),
                     CityId = 4,
                     GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateCaption = "Sunčano",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowDown.png"
                 },
                 new Forecast
                 {
@@ -125,8 +125,8 @@ namespace MeteoWebApp.Data.TestDataFactory
                     Date = new DateTime(2016, 3, 16),
                     CityId = 5,
                     GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateCaption = "Sunčano",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowUpRight.png"
                 },
                 new Forecast
                 {
@@ -138,9 +138,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 6,
                     Date = new DateTime(2016, 3, 17),
                     CityId = 1,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-many-clouds-icon.png",
+                    GeneralStateCaption = "Oblačno",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowUpRight.png"
                 },
                 new Forecast
                 {
@@ -152,9 +152,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 21,
                     Date = new DateTime(2016, 3, 17),
                     CityId = 2,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-many-clouds-icon.png",
+                    GeneralStateCaption = "Oblačno",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowDownLeft.png"
                 },
                 new Forecast
                 {
@@ -166,9 +166,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 15,
                     Date = new DateTime(2016, 3, 17),
                     CityId = 3,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-many-clouds-icon.png",
+                    GeneralStateCaption = "Oblačno",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowDown.png"
                 },
                 new Forecast
                 {
@@ -180,9 +180,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 18,
                     Date = new DateTime(2016, 3, 17),
                     CityId = 4,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-many-clouds-icon.png",
+                    GeneralStateCaption = "Oblačno",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowUp.png"
                 },
                 new Forecast
                 {
@@ -194,9 +194,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 9,
                     Date = new DateTime(2016, 3, 17),
                     CityId = 5,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-many-clouds-icon.png",
+                    GeneralStateCaption = "Oblačno",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowLeft.png"
                 },
                 new Forecast
                 {
@@ -208,9 +208,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 0,
                     Date = new DateTime(2016, 3, 18),
                     CityId = 1,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clouds-icon.png",
+                    GeneralStateCaption = "Djelomično oblačno",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowDown.png"
                 },
                 new Forecast
                 {
@@ -222,9 +222,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 10,
                     Date = new DateTime(2016, 3, 18),
                     CityId = 2,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clouds-icon.png",
+                    GeneralStateCaption = "Djelomično oblačno",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowRight.png"
                 },
                 new Forecast
                 {
@@ -236,9 +236,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 8,
                     Date = new DateTime(2016, 3, 18),
                     CityId = 3,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clouds-icon.png",
+                    GeneralStateCaption = "Djelomično oblačno",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowDownLeft.png"
                 },
                 new Forecast
                 {
@@ -250,9 +250,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 24,
                     Date = new DateTime(2016, 3, 18),
                     CityId = 4,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clouds-icon.png",
+                    GeneralStateCaption = "Djelomično oblačno",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowDownRight.png"
                 },
                 new Forecast
                 {
@@ -264,9 +264,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 0,
                     Date = new DateTime(2016, 3, 18),
                     CityId = 5,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clouds-icon.png",
+                    GeneralStateCaption = "Djelomično oblačno",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowUpRight.png"
                 },
                 new Forecast
                 {
@@ -278,9 +278,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 0,
                     Date = new DateTime(2016, 3, 19),
                     CityId = 1,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-showers-scattered-icon.png",
+                    GeneralStateCaption = "Kiša",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowUpLeft.png"
                 },
                 new Forecast
                 {
@@ -292,9 +292,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 6,
                     Date = new DateTime(2016, 3, 19),
                     CityId = 2,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-snow-scattered-icon.png",
+                    GeneralStateCaption = "Snijeg",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowUpLeft.png"
                 },
                 new Forecast
                 {
@@ -306,9 +306,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 5,
                     Date = new DateTime(2016, 3, 19),
                     CityId = 3,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-storm-night-icon.png",
+                    GeneralStateCaption = "Pljusak s grmljavinom",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowUpLeft.png"
                 },
                 new Forecast
                 {
@@ -320,9 +320,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 7,
                     Date = new DateTime(2016, 3, 19),
                     CityId = 4,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-showers-scattered-icon.png",
+                    GeneralStateCaption = "Kiša",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowUpLeft.png"
                 },
                 new Forecast
                 {
@@ -334,9 +334,9 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindSpeed = 0,
                     Date = new DateTime(2016, 3, 19),
                     CityId = 4,
-                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png",
-                    GeneralStateCaption = "Clear",
-                    WindDirectionImageUrl = "/Content/Images/WindArrows/Arrows-Right-icon.png"
+                    GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-showers-scattered-icon.png",
+                    GeneralStateCaption = "Kiša",
+                    WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowUpLeft.png"
                 }
             }.ToList().ForEach(forecast => db.Forecasts.Add(forecast));
         }

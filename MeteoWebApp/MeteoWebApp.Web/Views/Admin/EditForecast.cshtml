@@ -13,21 +13,18 @@
         @Html.RouteLink("Idućih tjedan dana", "EditForecast", new { CityId = @Model.CityId, FirstDate = @Model.FirstDate.AddDays(7) })
     </div>
 </div>
-@if (Model.Forecasts != null && Model.Forecasts.Any())
+
+@if(Model.Forecasts != null && Model.Forecasts.Any())
 {
     <div class="col-md-1"></div>
     <div class="col-md-10">
         <table class="table table-striped">
-            @{
-                DateTimeOffset firstDate = @Model.FirstDate;
-            }
-            @for(int i = 0; i < 7; i++)
+            @for (int i = 0; i < 7; i++)
             {
-                var forecast = @Model.Forecasts.SingleOrDefault(x => x.Date == firstDate.AddDays(i));
-
-                if(forecast != null)
+                var forecast = Model.Forecasts.SingleOrDefault(x => x.Date == Model.FirstDate.AddDays(i));
+                if (forecast != null)
                 {
-                    <tr class=@(forecast.Date == DateTime.Now ? "success" : "" )>
+                    <tr class=@(forecast.Date == DateTime.Now ? "success" : "")>
                         <td>@forecast.Date.ToString("dd.MM.yyyy")</td>
                         <td>
                             <img class="img-responsive" src="@forecast.GeneralStateImageUrl" data-toggle="tooltip" title="@forecast.GeneralStateCaption" data-placement="right" />
@@ -48,17 +45,17 @@
                 }
                 else
                 {
-                <tr>
-                    <td>
-                        @firstDate.AddDays(i).ToString("dd.MM.yyyy")
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="@Url.Action("EditForecast")" class="btn btn-success">Dodaj</a></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                    <tr>
+                        <td>
+                            @Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="@Url.Action("CreateForecastRecord", new { CityId = Model.CityId, FirstDate = Model.FirstDate, Date = Model.FirstDate.AddDays(i) })" class="btn btn-success">Dodaj</a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                 }
             }
         </table>
@@ -66,53 +63,12 @@
     <div class="col-md-1"></div>
 }
 
-    @*@foreach (var forecast in @Model.Forecasts)
-        {
-            <tr class=@(forecast.Date == DateTime.Now ? "success" : "" )>
-                <td>@forecast.Date.ToString("dd.MM.yyyy")</td>
-                <td>
-                    <img class="img-responsive" src="@forecast.GeneralStateImageUrl" data-toggle="tooltip" title="@forecast.GeneralStateCaption" data-placement="right" />
-                </td>
-                <td>@forecast.Temperature °C</td>
-                <td>@forecast.RainChance %</td>
-                <td>
-                    <img class="img-responsive wind-speed-image" src="@forecast.WindDirectionImageUrl" />
-                    (@forecast.WindSpeed)
-                </td>
-                <td>
-                    <a href="@Url.Action("EditForecastRecord", new { CityId = @Model.CityId, ForecastRecordId = forecast.Id })"><img src="~/Content/Images/OtherIcons/1459726611_icon-136-document-edit.png" data-toggle="tooltip" title="Uredi"></a>
-                </td>
-                <td>
-                    <a class="delete-button" data-toggle="modal" data-target="#delete-popup" data="@forecast.Id"><img src="~/Content/Images/OtherIcons/1459981345_free-27.png" data-toggle="tooltip" title="Izbriši"></a>
-                </td>
-            </tr>
-                numberOfRows++;
-                lastDate = forecast.Date;
-        }
-        @while(numberOfRows < 7)
-        {
-            <tr>
-                <td>
-                    @lastDate.AddDays(i).ToString("dd.MM.yyyy")
-                </td>
-                <td></td>
-                <td></td>
-                <td><a href="@Url.Action("EditForecast")" class="btn btn-success">Dodaj</a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            i++;
-            numberOfRows++;
-        }*@
-
 else
 {
     <div class="alert alert-info">
         <strong>@Model.FirstDate.ToString("dd.MM.yyyy") - @Model.FirstDate.AddDays(7).ToString("dd.MM.yyyy")</strong> Nema podataka za odabrani period!
     </div>
 }
-
 
 <!-- Delete popup -->
 <div id="delete-popup" class="modal fade" role="dialog">
@@ -125,7 +81,7 @@ else
             </div>
             <div class="modal-body">
                 @using(@Html.BeginForm("DeleteForecastRecord", "Admin", FormMethod.Post))
-                {
+        {
                     @Html.AntiForgeryToken()
                     <p>Jeste li sigurni da želite izbrisati zapis</p>
                     <input name="ForecastRecordId" type="hidden" id="delete-id-field" value="0" />
@@ -133,7 +89,7 @@ else
                     <input name="FirstDate" type="hidden" value="@Model.FirstDate" />
                     <button class="close" data-dismiss="modal">Odustani</button>
                     <input class="btn btn-success" type="submit" value="Izbriši" />
-                }
+        }
                 @*<form action="@Url.RouteUrl("DeleteForecastRecord")" method="post">
 
                     </form>*@

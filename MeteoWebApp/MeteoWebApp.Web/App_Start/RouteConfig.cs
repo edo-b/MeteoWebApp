@@ -18,6 +18,7 @@ namespace MeteoWebApp.Web
             routes.MapRoute("EditForecast", "admin/uredi-prognozu/{CityId}", new { controller = "Admin", action = "EditForecast" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
             routes.MapRoute("EditForecastRecord", "admin/uredi-zapis/{CityId}/{ForecastRecordId}", new { controller = "Admin", action = "EditForecastRecord" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
             routes.MapRoute("DeleteForecastRecord", "admin/izbriši-zapis/{CityId}/{ForecastRecordId}", new { controller = "Admin", action = "DeleteForecastRecord" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
+            routes.MapRoute("CreateForecastRecord", "admin/dodaj-zapis/{CityId}", new { controller = "Admin", action = "CreateForecastRecord" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
 
             routes.MapRoute(
                 name: "Default",

@@ -121,6 +121,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Enumerations.cs" />
+    <Compile Include="Helpers\SelectListProviders.cs" />
     <Compile Include="Models\AdminCitiesViewModel.cs" />
     <Compile Include="Models\CreateForecastViewModel.cs" />
     <Compile Include="Models\DeleteForecastViewModel.cs" />
@@ -137,11 +139,17 @@
     <Content Include="Content\Images\WeatherImages\Status-weather-clear-icon.png" />
     <Content Include="Content\Images\WeatherImages\Status-weather-clouds-icon.png" />
     <Content Include="Content\Images\WeatherImages\Status-weather-many-clouds-icon.png" />
-    <Content Include="Content\Images\WeatherImages\Status-weather-showers-day-icon.png" />
     <Content Include="Content\Images\WeatherImages\Status-weather-showers-scattered-icon.png" />
     <Content Include="Content\Images\WeatherImages\Status-weather-snow-scattered-icon.png" />
     <Content Include="Content\Images\WeatherImages\Status-weather-storm-night-icon.png" />
-    <Content Include="Content\Images\WindArrows\Arrows-Right-icon.png" />
+    <Content Include="Content\Images\WindArrows\ArrowDown.png" />
+    <Content Include="Content\Images\WindArrows\ArrowDownLeft.png" />
+    <Content Include="Content\Images\WindArrows\ArrowDownRight.png" />
+    <Content Include="Content\Images\WindArrows\ArrowLeft.png" />
+    <Content Include="Content\Images\WindArrows\ArrowRight.png" />
+    <Content Include="Content\Images\WindArrows\ArrowUp.png" />
+    <Content Include="Content\Images\WindArrows\ArrowUpLeft.png" />
+    <Content Include="Content\Images\WindArrows\ArrowUpRight.png" />
     <Content Include="Content\Scripts\bootstrap.min.js" />
     <Content Include="Content\Scripts\EditForecastScript.js" />
     <Content Include="Content\Scripts\ForecastScript.js" />
@@ -187,6 +195,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Admin\EditForecast.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\CreateForecastRecord.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

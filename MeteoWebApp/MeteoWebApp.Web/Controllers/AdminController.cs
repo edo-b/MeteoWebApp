@@ -59,9 +59,18 @@ namespace MeteoWebApp.Web.Controllers
 
         public ActionResult CreateForecastRecord(CreateForecastViewModel model)
         {
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("CreateForecastRecord")]
+        public ActionResult CreateForecastRecord_post(CreateForecastViewModel model)
+        {
             if(model.ValidateInputValues())
             {
-                // Insert into database
+                model.PrepareDataForStoring();
+                _forecastCommands.CreateForecastRecord(model.Temperature, model.GeneralState, model.WindDirection, model.WindSpeed, model.RainChance, model.GeneralStateImageUrl, model.GeneralStateCaption, model.WindDirectionImageUrl, model.Date, model.CityId);
             }
 
             return RedirectToRoute("EditForecast", new { CityId = model.CityId, FirstDate = model.FirstDate });

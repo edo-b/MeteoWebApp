@@ -1,0 +1,31 @@
+﻿@model MeteoWebApp.Web.Models.CreateForecastViewModel
+@{
+    ViewBag.Title = "CreateForecastRecord";
+}
+
+<h2>Napravi novi zapis prognoze - <strong>@Model.Date.ToString("dd.MM.yyyy")</strong></h2>
+
+<form class="form" method="post">
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label>Temperatura</label>
+        @Html.TextBoxFor(x => x.Temperature, new { @class = "form-control", Type="number" })
+    </div>
+    <div class="form-group">
+        <label>Vjerojatnost kiše</label>
+        @Html.TextBoxFor(x => x.RainChance, new { @class = "form-control", Type = "number" })
+    </div>
+    <div class="form-group">
+        <label>Prognoza</label>
+        @Html.DropDownListFor(x => x.GeneralState, MeteoWebApp.Web.Helpers.SelectListProviders.GetGeneralStateSelectList(), new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        <label>Smjer vjetra</label>
+        @Html.DropDownListFor(x => x.WindDirection, MeteoWebApp.Web.Helpers.SelectListProviders.GetWindDirectionSelectList() , new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Brzina vjetra</label>
+        @Html.TextBoxFor(x => x.WindSpeed, new { @class = "form-control", Type = "number" })
+    </div>
+    <input type="submit" class="btn btn-default" value="Dodaj"/>
+</form>

@@ -22,5 +22,28 @@ namespace MeteoWebApp.Infrastructure.Forecast
                 }
             }
         }
+
+        public void CreateForecastRecord(int temperature, int generalState, int windDirection, int windSpeed, int rainChance, string generalStateImageUrl, string generalStateCaption, string windDirectionImageUrl, DateTimeOffset date, int cityId)
+        {
+            using(var db = new DatabaseModelContainer())
+            {
+                var dbForecast = new MeteoWebApp.Data.Forecast()
+                {
+                    Temperature = temperature,
+                    GeneralState = generalState,
+                    WindDirection = windDirection,
+                    WindSpeed = windSpeed,
+                    RainChance = rainChance,
+                    GeneralStateImageUrl = generalStateImageUrl,
+                    GeneralStateCaption = generalStateCaption,
+                    WindDirectionImageUrl = windDirectionImageUrl,
+                    Date = date,
+                    CityId = cityId
+                };
+
+                db.Forecasts.Add(dbForecast);
+                db.SaveChanges();
+            }
+        }
     }
 }
