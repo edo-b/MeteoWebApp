@@ -57,11 +57,6 @@ namespace MeteoWebApp.Web.Controllers
             return RedirectToRoute("EditForecast", new { CityId = model.CityId, FirstDate = model.FirstDate});
         }
 
-        public ActionResult CreateForecastRecord(CreateForecastViewModel model)
-        {
-            return View(model);
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("CreateForecastRecord")]

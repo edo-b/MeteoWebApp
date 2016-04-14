@@ -150,6 +150,7 @@
     <Content Include="Content\Images\WindArrows\ArrowUp.png" />
     <Content Include="Content\Images\WindArrows\ArrowUpLeft.png" />
     <Content Include="Content\Images\WindArrows\ArrowUpRight.png" />
+    <Content Include="Content\Images\WindArrows\NoWind.png" />
     <Content Include="Content\Scripts\bootstrap.min.js" />
     <Content Include="Content\Scripts\EditForecastScript.js" />
     <Content Include="Content\Scripts\ForecastScript.js" />
@@ -195,9 +196,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Admin\EditForecast.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Admin\CreateForecastRecord.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

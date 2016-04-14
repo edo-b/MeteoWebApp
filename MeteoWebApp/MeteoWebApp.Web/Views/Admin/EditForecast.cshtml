@@ -1,10 +1,10 @@
 ﻿@model MeteoWebApp.Web.Models.ForecastViewModel
 @{
-    ViewBag.Title = "EditForecast";
+    ViewBag.Title = "Uredi prognozu | MeteoWebApp";
 }
 
 <h2>Uredi prognozu - @Model.City</h2>
-
+<p>Period <strong>@Model.FirstDate.ToString("dd.MM.yyyy") - @Model.FirstDate.AddDays(6).ToString("dd.MM.yyyy")</strong></p>
 <div class="row">
     <div class="pull-left">
         @Html.RouteLink("Prethodnih tjedan dana", "EditForecast", new { CityId = @Model.CityId, FirstDate = @Model.FirstDate.AddDays(-7) })
@@ -14,7 +14,7 @@
     </div>
 </div>
 
-@if(Model.Forecasts != null && Model.Forecasts.Any())
+@if (Model.Forecasts != null && Model.Forecasts.Any())
 {
     <div class="col-md-1"></div>
     <div class="col-md-10">
@@ -36,7 +36,7 @@
                             (@forecast.WindSpeed)
                         </td>
                         <td>
-                            <a href="@Url.Action("EditForecastRecord", new { CityId = @Model.CityId, ForecastRecordId = forecast.Id })"><img src="~/Content/Images/OtherIcons/1459726611_icon-136-document-edit.png" data-toggle="tooltip" title="Uredi"></a>
+                            <a class="edit-button" data-toggle="modal" data-target="#edit-popup" data="@forecast.Id"><img src="~/Content/Images/OtherIcons/1459726611_icon-136-document-edit.png" data-toggle="tooltip" title="Uredi"></a>
                         </td>
                         <td>
                             <a class="delete-button" data-toggle="modal" data-target="#delete-popup" data="@forecast.Id"><img src="~/Content/Images/OtherIcons/1459981345_free-27.png" data-toggle="tooltip" title="Izbriši"></a>
@@ -51,7 +51,7 @@
                         </td>
                         <td></td>
                         <td></td>
-                        <td><a href="@Url.Action("CreateForecastRecord", new { CityId = Model.CityId, FirstDate = Model.FirstDate, Date = Model.FirstDate.AddDays(i) })" class="btn btn-success">Dodaj</a></td>
+                        <td><a data-toggle="modal" data-target="#create-popup" data="@Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")" class="btn btn-success create-button">Dodaj</a></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -65,9 +65,26 @@
 
 else
 {
-    <div class="alert alert-info">
-        <strong>@Model.FirstDate.ToString("dd.MM.yyyy") - @Model.FirstDate.AddDays(7).ToString("dd.MM.yyyy")</strong> Nema podataka za odabrani period!
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <table class="table table-striped">
+            @for (int i = 0; i < 7; i++)
+            {
+            <tr>
+                <td>
+                    @Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")
+                </td>
+                <td></td>
+                <td></td>
+                <td><a href="@Url.Action("CreateForecastRecord", new { CityId = Model.CityId, FirstDate = Model.FirstDate, Date = Model.FirstDate.AddDays(i) })" class="btn btn-success">Dodaj</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            }
+        </table>
     </div>
+    <div class="col-md-1"></div>
 }
 
 <!-- Delete popup -->
@@ -80,8 +97,8 @@ else
                 <h4 class="modal-title">Obriši</h4>
             </div>
             <div class="modal-body">
-                @using(@Html.BeginForm("DeleteForecastRecord", "Admin", FormMethod.Post))
-        {
+                @using (@Html.BeginForm("DeleteForecastRecord", "Admin", FormMethod.Post))
+                {
                     @Html.AntiForgeryToken()
                     <p>Jeste li sigurni da želite izbrisati zapis</p>
                     <input name="ForecastRecordId" type="hidden" id="delete-id-field" value="0" />
@@ -89,10 +106,7 @@ else
                     <input name="FirstDate" type="hidden" value="@Model.FirstDate" />
                     <button class="close" data-dismiss="modal">Odustani</button>
                     <input class="btn btn-success" type="submit" value="Izbriši" />
-        }
-                @*<form action="@Url.RouteUrl("DeleteForecastRecord")" method="post">
-
-                    </form>*@
+                }
             </div>
             <div class="modal-footer">
             </div>
@@ -101,6 +115,97 @@ else
     </div>
 </div>
 
+<!--Create popup-->
+<div id="create-popup" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!--Content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Dodaj zapis za <span id="create-date-label"></span></h4>
+            </div>
+            <div class="modal-body">
+                @using (@Html.BeginForm("CreateForecastRecord", "Admin", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <input name="Date" type="hidden" id="create-date-field"/>
+                    <input name="CityId" type="hidden" value="@Model.CityId" />
+                    <input name="FirstDate" type="hidden" value="@Model.FirstDate" />
+                    <div class="form-group">
+                        <label>Temperatura</label>
+                        <input type="number" name="Temperature" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Vjerojatnost kiše</label>
+                        <input type="number" name="RainChance" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Prognoza</label>
+                        @Html.DropDownList("GeneralState", MeteoWebApp.Web.Helpers.SelectListProviders.GetGeneralStateSelectList(), new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Smjer vjetra</label>
+                        @Html.DropDownList("WindDirection", MeteoWebApp.Web.Helpers.SelectListProviders.GetWindDirectionSelectList(), new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Brzina vjetra</label>
+                        <input type="number" name="WindSpeed" class="form-control" id="wind-speed-input-field" required />
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Dodaj" />
+                    <button class="close" data-dismiss="modal">Odustani</button>
+                }
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Edit popup-->
+<div id="edit-popup" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!--Content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Uredi zapis - <span id="edit-date-label"></span></h4>
+            </div>
+            <div class="modal-body">
+                @using (@Html.BeginForm("EditForecastRecord", "Admin", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <input name="ForecastRecordId" type="hidden" id="edit-date-field" />
+                    <input name="FirstDate" type="hidden" value="@Model.FirstDate" />
+                    <div class="form-group">
+                        <label>Temperatura</label>
+                        <input type="number" name="Temperature" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Vjerojatnost kiše</label>
+                        <input type="number" name="RainChance" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Prognoza</label>
+                        @Html.DropDownList("GeneralStateEdit", MeteoWebApp.Web.Helpers.SelectListProviders.GetGeneralStateSelectList(), new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Smjer vjetra</label>
+                        @Html.DropDownList("WindDirectionEdit", MeteoWebApp.Web.Helpers.SelectListProviders.GetWindDirectionSelectList(), new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label>Brzina vjetra</label>
+                        <input type="number" name="WindSpeed" class="form-control" id="wind-speed-edit-input-field" required />
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Dodaj" />
+                    <button class="close" data-dismiss="modal">Odustani</button>
+                }
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @section Css{

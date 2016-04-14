@@ -102,6 +102,12 @@ namespace MeteoWebApp.Web.Helpers
                     Text = "Sjeverozapadnjak - SZ",
                     Value = ((int)WindDirections.NW).ToString(),
                     Selected = false
+                },
+                new SelectListItem
+                {
+                    Text = "Bez vjetra",
+                    Value = ((int)WindDirections.NoWind).ToString(),
+                    Selected = false
                 }
             };
         }

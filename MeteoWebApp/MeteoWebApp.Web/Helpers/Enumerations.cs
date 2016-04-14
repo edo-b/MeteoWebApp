@@ -19,6 +19,7 @@
         S,
         SW,
         W,
-        NW
+        NW,
+        NoWind
     }
 }

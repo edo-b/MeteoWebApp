@@ -36,11 +36,11 @@ namespace MeteoWebApp.Web.Models
             {
                 returnValue = false;
             }
-            if(this.RainChance < 0)
+            if(this.RainChance < 0 || this.RainChance > 100)
             {
                 returnValue = false;
             }
-            if(this.WindDirection < 0 || this.WindDirection > 8)
+            if(this.WindDirection < 0 || this.WindDirection > 9)
             {
                 returnValue = false;
             }
@@ -111,6 +111,9 @@ namespace MeteoWebApp.Web.Models
                     break;
                 case (int)WindDirections.NW:
                     this.WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowDownRight.png";
+                    break;
+                case (int)WindDirections.NoWind:
+                    this.WindDirectionImageUrl = "/Content/Images/WindArrows/NoWind.png";
                     break;
                 default:
                     //Error
