@@ -32,9 +32,17 @@ namespace MeteoWebApp.Web.Controllers
             return View(model);
         }
 
-        public string EditForecastRecord()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditForecastRecord(EditForecastViewModel model)
         {
-            return "Test";
+            if (model.ValidateInputValues())
+            {
+                model.PrepareDataForStoring();
+                _forecastCommands.EditForecastRecord(model.ForecastRecordId, model.Temperature, model.GeneralStateEdit, model.WindDirectionEdit, model.WindSpeed, model.RainChance, model.GeneralStateImageUrl, model.GeneralStateCaption, model.WindDirectionImageUrl);
+            }
+
+            return RedirectToRoute("EditForecast", new { CityId = model.CityId, FirstDate = model.FirstDate });
         }
 
         [HttpPost]

@@ -45,5 +45,27 @@ namespace MeteoWebApp.Infrastructure.Forecast
                 db.SaveChanges();
             }
         }
+
+        public void EditForecastRecord(int id, int temperature, int generalState, int windDirection, int windSpeed, int rainChance, string generalStateImageUrl, string generalStateCaption, string windDirectionImageUrl)
+        {
+            using(var db = new DatabaseModelContainer())
+            {
+                var dbForecast = db.Forecasts.SingleOrDefault(x => x.Id == id);
+
+                if(dbForecast != null)
+                {
+                    dbForecast.Temperature = temperature;
+                    dbForecast.RainChance = rainChance;
+                    dbForecast.GeneralState = generalState;
+                    dbForecast.GeneralStateCaption = generalStateCaption;
+                    dbForecast.GeneralStateImageUrl = generalStateImageUrl;
+                    dbForecast.WindSpeed = windSpeed;
+                    dbForecast.WindDirection = windDirection;
+                    dbForecast.WindDirectionImageUrl = windDirectionImageUrl;
+                }
+
+                db.SaveChanges();
+            }
+        }
     }
 }

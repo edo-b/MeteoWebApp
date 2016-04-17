@@ -1,18 +1,18 @@
-﻿using System;
+﻿using MeteoWebApp.Web.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using MeteoWebApp.Web.Helpers;
-using System.Web.Mvc;
 
 namespace MeteoWebApp.Web.Models
 {
-    public partial class CreateForecastViewModel
+    public partial class EditForecastViewModel
     {
+        public int ForecastRecordId { get; set; }
         public int CityId { get; set; }
         public int Temperature { get; set; }
-        public int GeneralState { get; set; }
-        public int WindDirection { get; set; }
+        public int GeneralStateEdit { get; set; }
+        public int WindDirectionEdit { get; set; }
         public int WindSpeed { get; set; }
         public int RainChance { get; set; }
         public string GeneralStateImageUrl { get; set; }
@@ -22,33 +22,33 @@ namespace MeteoWebApp.Web.Models
         public DateTimeOffset FirstDate { get; set; }
     }
 
-    public partial class CreateForecastViewModel
-    {        
+    public partial class EditForecastViewModel
+    {
         public bool ValidateInputValues()
         {
             var returnValue = true;
 
-            if(this.CityId <= 0)
+            if (this.CityId <= 0)
             {
                 returnValue = false;
             }
-            if(this.GeneralState <= 0 || this.GeneralState > 6)
+            if (this.GeneralStateEdit <= 0 || this.GeneralStateEdit > 6)
             {
                 returnValue = false;
             }
-            if(this.RainChance < 0 || this.RainChance > 100)
+            if (this.RainChance < 0 || this.RainChance > 100)
             {
                 returnValue = false;
             }
-            if(this.WindDirection < 0 || this.WindDirection > 9)
+            if (this.WindDirectionEdit < 0 || this.WindDirectionEdit > 9)
             {
                 returnValue = false;
             }
-            if(this.WindSpeed < 0)
+            if (this.WindSpeed < 0)
             {
                 returnValue = false;
             }
-            if(this.Date == null)
+            if (this.Date == null)
             {
                 returnValue = false;
             }
@@ -58,7 +58,7 @@ namespace MeteoWebApp.Web.Models
 
         public void PrepareDataForStoring()
         {
-            switch(this.GeneralState)
+            switch (this.GeneralStateEdit)
             {
                 case (int)GeneralStateConditions.Sunny:
                     this.GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-clear-icon.png";
@@ -83,9 +83,9 @@ namespace MeteoWebApp.Web.Models
                 case (int)GeneralStateConditions.ThunderStorm:
                     this.GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-storm-night-icon.png";
                     this.GeneralStateCaption = "Pljusak s grmljavinom";
-                    break;               
+                    break;
             }
-            switch (this.WindDirection)
+            switch (this.WindDirectionEdit)
             {
                 case (int)WindDirections.N:
                     this.WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowDown.png";

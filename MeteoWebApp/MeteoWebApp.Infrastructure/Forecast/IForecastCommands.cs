@@ -9,6 +9,7 @@ namespace MeteoWebApp.Infrastructure.Forecast
     public interface IForecastCommands
     {
         void DeleteForecastRecord(int ForecastRecordId);
-        void CreateForecastRecord(int Temperature, int GeneralState, int WindDirection, int WindSpeed, int RainChance, string GeneralStateImageUrl, string GeneralStateCaption, string WindDirectionImageUrl, DateTimeOffset Date, int cityId);
+        void CreateForecastRecord(int temperature, int generalState, int windDirection, int windSpeed, int rainChance, string generalStateImageUrl, string generalStateCaption, string windDirectionImageUrl, DateTimeOffset date, int cityId);
+        void EditForecastRecord(int id, int temperature, int generalState, int windDirection, int windSpeed, int rainChance, string generalStateImageUrl, string generalStateCaption, string windDirectionImageUrl);
     }
 }

@@ -25,15 +25,15 @@
                 if (forecast != null)
                 {
                     <tr class=@(forecast.Date == DateTime.Now ? "success" : "")>
-                        <td>@forecast.Date.ToString("dd.MM.yyyy")</td>
+                        <td id="@String.Format("edit-date-data" + @forecast.Id)" data="@forecast.Date.ToString("dd.MM.yyyy")">@forecast.Date.ToString("dd.MM.yyyy")</td>
                         <td>
-                            <img class="img-responsive" src="@forecast.GeneralStateImageUrl" data-toggle="tooltip" title="@forecast.GeneralStateCaption" data-placement="right" />
+                            <img id="@String.Format("edit-general-state-data" + @forecast.Id)" data="@forecast.GeneralState" class="img-responsive" src="@forecast.GeneralStateImageUrl" data-toggle="tooltip" title="@forecast.GeneralStateCaption" data-placement="right" />
                         </td>
-                        <td>@forecast.Temperature °C</td>
-                        <td>@forecast.RainChance %</td>
+                        <td id="@String.Format("edit-temperature-data" + @forecast.Id)" data="@forecast.Temperature">@forecast.Temperature °C</td>
+                        <td id="@String.Format("edit-rain-chance-data" + @forecast.Id)" data="@forecast.RainChance">@forecast.RainChance %</td>
                         <td>
-                            <img class="img-responsive wind-speed-image" src="@forecast.WindDirectionImageUrl" />
-                            (@forecast.WindSpeed)
+                            <img id="@String.Format("edit-wind-direction-data" + @forecast.Id)" data="@forecast.WindDirection" class="img-responsive wind-speed-image" src="@forecast.WindDirectionImageUrl" />
+                            (<span id="@String.Format("edit-wind-speed-data" + @forecast.Id)" data="@forecast.WindSpeed">@forecast.WindSpeed</span>)
                         </td>
                         <td>
                             <a class="edit-button" data-toggle="modal" data-target="#edit-popup" data="@forecast.Id"><img src="~/Content/Images/OtherIcons/1459726611_icon-136-document-edit.png" data-toggle="tooltip" title="Uredi"></a>
@@ -175,15 +175,16 @@ else
                 @using (@Html.BeginForm("EditForecastRecord", "Admin", FormMethod.Post))
                 {
                     @Html.AntiForgeryToken()
-                    <input name="ForecastRecordId" type="hidden" id="edit-date-field" />
+                    <input name="ForecastRecordId" type="hidden" id="edit-id-field" />
                     <input name="FirstDate" type="hidden" value="@Model.FirstDate" />
+                    <input name="CityId" type="hidden" value="@Model.CityId" />
                     <div class="form-group">
                         <label>Temperatura</label>
-                        <input type="number" name="Temperature" class="form-control" required />
+                        <input type="number" name="Temperature" class="form-control" id="edit-temperature-field" required />
                     </div>
                     <div class="form-group">
                         <label>Vjerojatnost kiše</label>
-                        <input type="number" name="RainChance" class="form-control" required />
+                        <input type="number" name="RainChance" class="form-control" id="edit-rain-chance-field" required />
                     </div>
                     <div class="form-group">
                         <label>Prognoza</label>
@@ -195,7 +196,7 @@ else
                     </div>
                     <div class="form-group">
                         <label>Brzina vjetra</label>
-                        <input type="number" name="WindSpeed" class="form-control" id="wind-speed-edit-input-field" required />
+                        <input type="number" name="WindSpeed" class="form-control" id="edit-wind-speed-field" required />
                     </div>
                     <input type="submit" class="btn btn-primary" value="Dodaj" />
                     <button class="close" data-dismiss="modal">Odustani</button>

@@ -126,6 +126,7 @@
     <Compile Include="Models\AdminCitiesViewModel.cs" />
     <Compile Include="Models\CreateForecastViewModel.cs" />
     <Compile Include="Models\DeleteForecastViewModel.cs" />
+    <Compile Include="Models\EditForecastViewModel.cs" />
     <Compile Include="Models\ForecastViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
