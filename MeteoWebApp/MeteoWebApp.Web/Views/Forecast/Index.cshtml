@@ -1,10 +1,15 @@
 ﻿@model MeteoWebApp.Web.Models.ForecastViewModel
 @{
-    ViewBag.Title = "Prognoza | WebMeteoApp";
+    ViewBag.Title = "Prognoza | MeteoWebApp";
 }
 @if(Model.City != null)
 {
-<h2>Vremenska prognoza - <span>@Model.City</span></h2>
+<h2>Vremenska prognoza - <span>@Model.City</span>
+    @if(Request.IsAuthenticated)
+    {
+        <a href="@Url.RouteUrl("EditForecast", new { CityId = Model.CityId, FirstDate = Model.FirstDate})"><img src="/Content/Images/OtherIcons/edit-icon.png" /></a>
+    }
+    </h2>
 }
 else
 {
@@ -23,20 +28,36 @@ else
     <div class="col-md-1"></div>
     <div class="col-md-10">
         <table class="table table-striped">
-            @foreach (var forecast in @Model.Forecasts)
+            @for (int i = 0; i < 7; i++)
             {
-                <tr class = @(forecast.Date == DateTime.Now ? "success" : "" )>
-                    <td>@forecast.Date.ToString("dd.MM.yyyy")</td>
-                    <td>
-                        <img class="img-responsive" src="@forecast.GeneralStateImageUrl" data-toggle="tooltip" title="@forecast.GeneralStateCaption" data-placement="right" />
-                    </td>
-                    <td>@forecast.Temperature °C</td>
-                    <td>@forecast.RainChance %</td>
-                    <td>
-                        <img class="img-responsive wind-speed-image" src="@forecast.WindDirectionImageUrl" />
-                        (@forecast.WindSpeed)
-                    </td>
-                </tr>
+                var forecast = Model.Forecasts.SingleOrDefault(x => x.Date == Model.FirstDate.AddDays(i));
+                if (forecast != null)
+                {
+                    <tr class=@(forecast.Date == DateTime.Now ? "success" : "" )>
+                        <td>@forecast.Date.ToString("dd.MM.yyyy")</td>
+                        <td>
+                            <img class="img-responsive" src="@forecast.GeneralStateImageUrl" data-toggle="tooltip" title="@forecast.GeneralStateCaption" data-placement="right" />
+                        </td>
+                        <td>@forecast.Temperature °C</td>
+                        <td>@forecast.RainChance %</td>
+                        <td>
+                            <img class="img-responsive wind-speed-image" src="@forecast.WindDirectionImageUrl" />
+                            (@forecast.WindSpeed)
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td>
+                            @Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")
+                        </td>
+                        <td></td>
+                        <td><span class="label label-success">Nema podatka</span></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                }
             }
         </table>
     </div>

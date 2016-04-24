@@ -27,7 +27,7 @@
                     @Html.AntiForgeryToken()
                     <div class="form-group">
                         <label class="control-label">Korisničko ime</label>
-                        <input type="text" class="form-control" name="username" />
+                        <input type="text" class="form-control" id="username-input-field" name="username" />
                     </div>
                     <div class="form-group">
                         <label class="control-label">Lozinka</label>
@@ -42,5 +42,11 @@
             <div class="col-md-3"></div>
         </div>
     </div>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#username-input-field').focus();
+        })
+    </script>
 </body>
 </html>

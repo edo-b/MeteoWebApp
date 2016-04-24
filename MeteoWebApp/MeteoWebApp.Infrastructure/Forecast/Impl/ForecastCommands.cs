@@ -27,22 +27,26 @@ namespace MeteoWebApp.Infrastructure.Forecast
         {
             using(var db = new DatabaseModelContainer())
             {
-                var dbForecast = new MeteoWebApp.Data.Forecast()
-                {
-                    Temperature = temperature,
-                    GeneralState = generalState,
-                    WindDirection = windDirection,
-                    WindSpeed = windSpeed,
-                    RainChance = rainChance,
-                    GeneralStateImageUrl = generalStateImageUrl,
-                    GeneralStateCaption = generalStateCaption,
-                    WindDirectionImageUrl = windDirectionImageUrl,
-                    Date = date,
-                    CityId = cityId
-                };
 
-                db.Forecasts.Add(dbForecast);
-                db.SaveChanges();
+                if (db.Forecasts.SingleOrDefault(x => x.CityId == cityId && x.Date == date) == null)
+                {
+                    var newForecast = new MeteoWebApp.Data.Forecast()
+                    {
+                        Temperature = temperature,
+                        GeneralState = generalState,
+                        WindDirection = windDirection,
+                        WindSpeed = windSpeed,
+                        RainChance = rainChance,
+                        GeneralStateImageUrl = generalStateImageUrl,
+                        GeneralStateCaption = generalStateCaption,
+                        WindDirectionImageUrl = windDirectionImageUrl,
+                        Date = date,
+                        CityId = cityId
+                    };
+
+                    db.Forecasts.Add(newForecast);
+                    db.SaveChanges();
+                }
             }
         }
 

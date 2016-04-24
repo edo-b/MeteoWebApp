@@ -137,6 +137,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\Images\OtherIcons\1459726611_icon-136-document-edit.png" />
     <Content Include="Content\Images\OtherIcons\1459981345_free-27.png" />
+    <Content Include="Content\Images\OtherIcons\edit-icon.png" />
     <Content Include="Content\Images\OtherIcons\rain-icon.png" />
     <Content Include="Content\Images\WeatherImages\Status-weather-clear-icon.png" />
     <Content Include="Content\Images\WeatherImages\Status-weather-clouds-icon.png" />

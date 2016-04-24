@@ -355,7 +355,7 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindDirection = 7,
                     WindSpeed = 0,
                     Date = new DateTime(2016, 3, 19),
-                    CityId = 4,
+                    CityId = 5,
                     GeneralStateImageUrl = "/Content/Images/WeatherImages/Status-weather-showers-scattered-icon.png",
                     GeneralStateCaption = "Kiša",
                     WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowUpLeft.png"
