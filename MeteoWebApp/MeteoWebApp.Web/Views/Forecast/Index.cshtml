@@ -2,8 +2,14 @@
 @{
     ViewBag.Title = "Prognoza | WebMeteoApp";
 }
-
+@if(Model.City != null)
+{
 <h2>Vremenska prognoza - <span>@Model.City</span></h2>
+}
+else
+{
+    <h2>Greška u zahtjevu! Grad ne postoji</h2>
+}
 <div class="row">
     <div class="pull-left">
         @Html.RouteLink("Prethodnih tjedan dana", "ViewForecast", new { CityId = @Model.CityId, FirstDate = @Model.FirstDate.AddDays(-7) })
@@ -44,7 +50,7 @@ else
 }
 
 @section Css{
-    <link href="@Url.Content("~/Content/Styles/ForecastStyle.css")" rel="stylesheet" type="text/css">
+    
 }
 
 @section Script{

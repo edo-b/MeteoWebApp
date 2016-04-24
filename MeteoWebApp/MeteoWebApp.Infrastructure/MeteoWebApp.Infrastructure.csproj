@@ -60,6 +60,8 @@
     <Compile Include="Forecast\Impl\Forecast.cs" />
     <Compile Include="Forecast\Impl\ForecastQueries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\Impl\UserQueries.cs" />
+    <Compile Include="User\IUserQueries.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MeteoWebApp.Data\MeteoWebApp.Data.csproj">

@@ -8,6 +8,7 @@
   <EntityContainer Name="DatabaseModelStoreContainer">
     <EntitySet Name="Cities" EntityType="DatabaseModel.Store.Cities" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Forecasts" EntityType="DatabaseModel.Store.Forecasts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="DatabaseModel.Store.Users" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="CityForecast" Association="DatabaseModel.Store.CityForecast">
       <End Role="City" EntitySet="Cities" />
       <End Role="Forecast" EntitySet="Forecasts" />
@@ -36,6 +37,15 @@
     <Property Name="GeneralStateCaption" Type="nvarchar(max)" Nullable="false" />
     <Property Name="WindDirectionImageUrl" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Salt" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
   <Association Name="CityForecast">
     <End Role="City" Type="DatabaseModel.Store.Cities" Multiplicity="1" />
     <End Role="Forecast" Type="DatabaseModel.Store.Forecasts" Multiplicity="*" />
@@ -59,6 +69,7 @@
             <End Role="City" EntitySet="Cities" />
             <End Role="Forecast" EntitySet="Forecasts" />
           </AssociationSet>
+          <EntitySet Name="Users" EntityType="DatabaseModel.User" />
         </EntityContainer>
         <EntityType Name="City">
           <Key>
@@ -97,6 +108,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <Property Name="Salt" Type="String" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -125,6 +145,16 @@
           <ScalarProperty Name="GeneralStateImageUrl" ColumnName="GeneralStateImageUrl" />
           <ScalarProperty Name="GeneralStateCaption" ColumnName="GeneralStateCaption" />
           <ScalarProperty Name="WindDirectionImageUrl" ColumnName="WindDirectionImageUrl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -27,5 +27,6 @@ namespace MeteoWebApp.Data
     
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Forecast> Forecasts { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

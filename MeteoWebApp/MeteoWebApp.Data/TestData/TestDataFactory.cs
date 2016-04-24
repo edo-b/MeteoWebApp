@@ -16,10 +16,32 @@ namespace MeteoWebApp.Data.TestDataFactory
                 {
                     _insertCities(db);
                     _insertForecasts(db);
+                    _insertUsers(db);
                 }
 
                 db.SaveChanges();
             }
+        }
+
+        private static void _insertUsers(DatabaseModelContainer db)
+        {
+            new[]
+            {
+                new User
+                {
+                    Id = 1,
+                    Username = "admin",
+                    Password = "9c1de23a6e94f017a0d32d40e777fb94223a6fe3",
+                    Salt = "12345678"
+                },
+                new User
+                {
+                    Id = 2,
+                    Username = "vakula",
+                    Password = "2e7948f362e627fdb96f3169b5e99c89f613c289",
+                    Salt = "abcdefgh"
+                }
+            }.ToList().ForEach(user => db.Users.Add(user));
         }
 
         private static void _insertCities(DatabaseModelContainer db)

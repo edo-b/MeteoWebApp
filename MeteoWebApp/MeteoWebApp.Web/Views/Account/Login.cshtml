@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="@Url.Content("~/Content/Styles/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Styles/LoginStyle.css")" rel="stylesheet" />
+    <title>Prijava</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 well">
+                <legend>Prijavite se</legend>
+                @if (@ViewBag.Error == true)
+                {
+                    <div class="alert alert-danger">
+                        <strong>Greška!</strong> Podaci koje ste unijeli nisu pronađeni ili su pogrešni!
+                    </div>
+                }
+                <form method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label class="control-label">Korisničko ime</label>
+                        <input type="text" class="form-control" name="username" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Lozinka</label>
+                        <input type="password" class="form-control" name="password" />
+                    </div>
+                    <input type="submit" class="btn btn-primary col-md-6" value="Prijava" /> 
+                    <div class="col-md-1"></div>
+                    <a href="@Url.RouteUrl("ViewForecast", new { CityId = 1})" class="text-center">Odustani</a>
+                    <div class="col-md-1"></div>
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</body>
+</html>

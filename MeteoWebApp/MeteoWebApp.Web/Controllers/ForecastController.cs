@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace MeteoWebApp.Web.Controllers
 {
+    [AllowAnonymous]
     public class ForecastController : Controller
     {
         //
@@ -18,7 +19,7 @@ namespace MeteoWebApp.Web.Controllers
             {
                 model.FirstDate = new DateTimeOffset(new DateTime(2016, 3, 18));
             }
-            if(model.CityId == null || model.CityId <= 0)
+            if(model.CityId <= 0)
             {
                 model.CityId = 1;
             }

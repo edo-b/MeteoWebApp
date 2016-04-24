@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace MeteoWebApp.Web.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         //

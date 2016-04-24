@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="@Url.Content("~/Content/Styles/bootstrap.min.css")" rel="stylesheet">
+    <link href="@Url.Content("~/Content/Styles/LayoutStyle.css")" rel="stylesheet">
     @RenderSection("Css", false)
     <title>@ViewBag.Title</title>
     <link rel="icon" href="@Url.Content("~/Content/Images/OtherIcons/rain-icon.png")">
@@ -21,7 +22,6 @@
             </button>
             <div class="collapse navbar-collapse navHeaderCollapse">
                 <ul class="nav navbar-nav navbar-left">
-                    <li><a href="#">Novosti i upozorenja</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown">Prognoza<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -32,9 +32,25 @@
                             <li>@Html.RouteLink("Dubrovnik", "ViewForecast", new { CityId = 5 })</li>
                         </ul>
                     </li>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li><a href="@Url.RouteUrl("AdminCities")">Uredi prognozu</a></li>
+                    }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <a href="@Url.RouteUrl("AdminCities")" class="btn btn-success navbar-btn">Admin</a>
+                    @if (Request.IsAuthenticated)
+                    {
+                        
+                            using (Html.BeginForm("Logout", "Account", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+                                <input type="submit" class="btn btn-primary logout-button" value="Odjava" />
+                            }
+                    }
+                    else
+                    {
+                        <a href="@Url.RouteUrl("Login")" class="btn btn-success navbar-btn">Login</a>
+                    }
                 </ul>
             </div>
         </div>
@@ -48,9 +64,11 @@
     <!--Footer-->
     <div class="navbar navbar-inverse navbar-fixed-bottom">
         <div class="container">
-            <p class="navbar-text">WebMeteoApp</p>
-            <p class="navbar-text">Edo Behmen - završni rad</p>
-            <a class="navbar-btn btn btn-primary pull-right">Test button</a>
+            <div class="navbar-text">
+                WebMeteoApp 
+                <br />
+                Edo Behmen - završni rad
+            </div>
         </div>
     </div>
 

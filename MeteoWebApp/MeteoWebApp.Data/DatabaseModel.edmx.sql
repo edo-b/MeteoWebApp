@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/26/2016 18:40:59
--- Generated from EDMX file: D:\Users\Edo\Desktop\Edo\Programi\MeteoWebApp\MeteoWebApp\MeteoWebApp.Data\DatabaseModel.edmx
+-- Date Created: 04/21/2016 17:23:22
+-- Generated from EDMX file: C:\Users\Edo\Desktop\Edo\Programming\Faks\MeteoWebApp\MeteoWebApp\MeteoWebApp.Data\DatabaseModel.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -30,6 +30,9 @@ IF OBJECT_ID(N'[dbo].[Cities]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[Forecasts]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Forecasts];
+GO
+IF OBJECT_ID(N'[dbo].[UserSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[UserSet];
 GO
 
 -- --------------------------------------------------
@@ -59,6 +62,15 @@ CREATE TABLE [dbo].[Forecasts] (
 );
 GO
 
+-- Creating table 'Users'
+CREATE TABLE [dbo].[Users] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Username] nvarchar(max)  NOT NULL,
+    [Password] nvarchar(max)  NOT NULL,
+    [Salt] nvarchar(max)  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -75,6 +87,12 @@ ADD CONSTRAINT [PK_Forecasts]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
+-- Creating primary key on [Id] in table 'Users'
+ALTER TABLE [dbo].[Users]
+ADD CONSTRAINT [PK_Users]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
@@ -86,6 +104,7 @@ ADD CONSTRAINT [FK_CityForecast]
     REFERENCES [dbo].[Cities]
         ([Id])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
 
 -- Creating non-clustered index for FOREIGN KEY 'FK_CityForecast'
 CREATE INDEX [IX_FK_CityForecast]
