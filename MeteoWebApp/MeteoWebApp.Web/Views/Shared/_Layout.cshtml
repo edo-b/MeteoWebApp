@@ -7,6 +7,7 @@
     <link href="@Url.Content("~/Content/Styles/bootstrap.min.css")" rel="stylesheet">
     <link href="@Url.Content("~/Content/Styles/LayoutStyle.css")" rel="stylesheet">
     @RenderSection("Css", false)
+    @RenderSection("HeadScripts", false)
     <title>@ViewBag.Title</title>
     <link rel="icon" href="@Url.Content("~/Content/Images/OtherIcons/rain-icon.png")">
 </head>
@@ -49,7 +50,7 @@
                     }
                     else
                     {
-                        <a href="@Url.RouteUrl("Login")" class="btn btn-success navbar-btn">Login</a>
+                        <a href="@Url.RouteUrl("Login")" class="btn btn-success navbar-btn">Prijava</a>
                     }
                 </ul>
             </div>

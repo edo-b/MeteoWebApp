@@ -21,7 +21,11 @@
         <table class="table table-striped">
             @for (int i = 0; i < 7; i++)
             {
-                var forecast = Model.Forecasts.SingleOrDefault(x => x.Date == Model.FirstDate.AddDays(i));
+                var forecast = Model.Forecasts.Where(x => x.Date.DateTime == Model.FirstDate.AddDays(i).DateTime).SingleOrDefault();
+                if(i == 0)
+                {
+                    forecast = Model.Forecasts.Where(x => x.Date.DateTime == Model.FirstDate.DateTime).SingleOrDefault();
+                }
                 if (forecast != null)
                 {
                     <tr class=@(forecast.Date == DateTime.Now ? "success" : "")>
@@ -70,17 +74,17 @@ else
         <table class="table table-striped">
             @for (int i = 0; i < 7; i++)
             {
-            <tr>
-                <td>
-                    @Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")
-                </td>
-                <td></td>
-                <td></td>
-                <td><a href="@Url.Action("CreateForecastRecord", new { CityId = Model.CityId, FirstDate = Model.FirstDate, Date = Model.FirstDate.AddDays(i) })" class="btn btn-success">Dodaj</a></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+                <tr>
+                    <td>
+                        @Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td><a data-toggle="modal" data-target="#create-popup" data="@Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")" class="btn btn-success create-button">Dodaj</a></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             }
         </table>
     </div>
@@ -125,7 +129,8 @@ else
                 <h4 class="modal-title">Dodaj zapis za <span id="create-date-label"></span></h4>
             </div>
             <div class="modal-body">
-                @using (@Html.BeginForm("CreateForecastRecord", "Admin", FormMethod.Post))
+                <div id="create-validation-failed-warning"></div>
+                @using (@Html.BeginForm("CreateForecastRecord", "Admin", FormMethod.Post, new { onsubmit = "return validateForm('create')" }))
                 {
                     @Html.AntiForgeryToken()
                     <input name="Date" type="hidden" id="create-date-field"/>
@@ -133,11 +138,11 @@ else
                     <input name="FirstDate" type="hidden" value="@Model.FirstDate" />
                     <div class="form-group">
                         <label>Temperatura</label>
-                        <input type="number" name="Temperature" class="form-control" required />
+                        <input type="number" id="create-temperature-field" name="Temperature" class="form-control" required />
                     </div>
                     <div class="form-group">
                         <label>Vjerojatnost kiše</label>
-                        <input type="number" name="RainChance" class="form-control" required />
+                        <input type="number" id="create-rain-chance-field" name="RainChance" class="form-control" required />
                     </div>
                     <div class="form-group">
                         <label>Prognoza</label>
@@ -149,7 +154,7 @@ else
                     </div>
                     <div class="form-group">
                         <label>Brzina vjetra</label>
-                        <input type="number" name="WindSpeed" class="form-control" id="wind-speed-input-field" required />
+                        <input type="number" name="WindSpeed" class="form-control" id="create-wind-speed-field" required />
                     </div>
                     <input type="submit" class="btn btn-primary" value="Dodaj" />
                     <button class="close" data-dismiss="modal">Odustani</button>
@@ -172,7 +177,8 @@ else
                 <h4 class="modal-title">Uredi zapis - <span id="edit-date-label"></span></h4>
             </div>
             <div class="modal-body">
-                @using (@Html.BeginForm("EditForecastRecord", "Admin", FormMethod.Post))
+                <div id="edit-validation-failed-warning"></div>
+                @using (@Html.BeginForm("EditForecastRecord", "Admin", FormMethod.Post, new { onsubmit = "return validateForm('edit')" }))
                 {
                     @Html.AntiForgeryToken()
                     <input name="ForecastRecordId" type="hidden" id="edit-id-field" />
@@ -215,4 +221,8 @@ else
 
 @section Script{
     <script src="@Url.Content("~/Content/Scripts/EditForecastScript.js")"></script>
+}
+
+@section HeadScripts{
+    <script src="@Url.Content("~/Content/Scripts/ValidateFormScript.js")"></script>
 }
