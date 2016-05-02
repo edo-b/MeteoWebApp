@@ -21,11 +21,7 @@
         <table class="table table-striped">
             @for (int i = 0; i < 7; i++)
             {
-                var forecast = Model.Forecasts.Where(x => x.Date.DateTime == Model.FirstDate.AddDays(i).DateTime).SingleOrDefault();
-                if(i == 0)
-                {
-                    forecast = Model.Forecasts.Where(x => x.Date.DateTime == Model.FirstDate.DateTime).SingleOrDefault();
-                }
+                var forecast = Model.Forecasts.Where(x => DateTime.Compare(x.Date.DateTime, Model.FirstDate.AddDays(i).DateTime) == 0).SingleOrDefault();
                 if (forecast != null)
                 {
                     <tr class=@(forecast.Date == DateTime.Now ? "success" : "")>
