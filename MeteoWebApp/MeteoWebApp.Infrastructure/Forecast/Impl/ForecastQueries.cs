@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MeteoWebApp.Data;
+using System.Data.Entity;
 
 namespace MeteoWebApp.Infrastructure.Forecast
 {
@@ -17,7 +18,7 @@ namespace MeteoWebApp.Infrastructure.Forecast
 
                 var dbForecast = db.Forecasts
                                     .OrderBy(x => x.Date)
-                                    .Where(x => x.CityId == cityId && (x.Date >= firstDate) && (x.Date < endDate))
+                                    .Where(x => x.CityId == cityId && x.Date >= firstDate && x.Date < endDate)
                                     .Select(forecast => new Forecast
                                     {
                                         Id = forecast.Id,

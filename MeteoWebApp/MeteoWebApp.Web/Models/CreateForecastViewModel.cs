@@ -120,6 +120,8 @@ namespace MeteoWebApp.Web.Models
                 this.WindDirectionImageUrl = "/Content/Images/WindArrows/NoWind.png";
                 this.WindDirection = (int)WindDirections.NoWind;
             }
+
+            this.Date = new DateTimeOffset(this.Date.Date, new TimeSpan(0));
         }
     }
 }

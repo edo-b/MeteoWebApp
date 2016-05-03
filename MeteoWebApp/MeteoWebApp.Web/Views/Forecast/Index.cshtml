@@ -30,7 +30,7 @@ else
         <table class="table table-striped">
             @for (int i = 0; i < 7; i++)
             {
-                var forecast = Model.Forecasts.SingleOrDefault(x => x.Date == Model.FirstDate.AddDays(i));
+                var forecast = Model.Forecasts.SingleOrDefault(x => DateTime.Compare(x.Date.Date, Model.FirstDate.AddDays(i).Date) == 0);
                 if (forecast != null)
                 {
                     <tr class=@(forecast.Date == DateTime.Now ? "success" : "" )>

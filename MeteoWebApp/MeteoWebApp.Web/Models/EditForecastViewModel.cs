@@ -114,9 +114,6 @@ namespace MeteoWebApp.Web.Models
                 case (int)WindDirections.NoWind:
                     this.WindDirectionImageUrl = "/Content/Images/WindArrows/NoWind.png";
                     break;
-                default:
-                    //Error
-                    break;
             }
         }
     }
