@@ -37,7 +37,7 @@
         $('#WindDirectionEdit').val(windDirection);
         var generalState = $('#edit-general-state-data' + id).attr('data');
         $('#GeneralStateEdit').val(generalState);
-        if($('#edit-wind-speed-field').val == 0)
+        if($('#edit-wind-speed-field').val() == 0)
         {
             $('#edit-wind-speed-field').attr('disabled', '');
         }

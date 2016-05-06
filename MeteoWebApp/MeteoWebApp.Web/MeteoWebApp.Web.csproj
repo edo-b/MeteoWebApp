@@ -157,6 +157,7 @@
     <Content Include="Content\Scripts\bootstrap.min.js" />
     <Content Include="Content\Scripts\EditForecastScript.js" />
     <Content Include="Content\Scripts\ForecastScript.js" />
+    <Content Include="Content\Scripts\jquery-1.12.3.min.js" />
     <Content Include="Content\Scripts\ValidateFormScript.js" />
     <Content Include="Content\Styles\bootstrap.min.css" />
     <Content Include="Content\Styles\LayoutStyle.css" />

@@ -121,6 +121,11 @@ namespace MeteoWebApp.Web.Models
                 this.WindDirection = (int)WindDirections.NoWind;
             }
 
+            if (this.WindDirection == (int)WindDirections.NoWind)
+            {
+                this.WindSpeed = 0;
+            }
+
             this.Date = new DateTimeOffset(this.Date.Date, new TimeSpan(0));
         }
     }

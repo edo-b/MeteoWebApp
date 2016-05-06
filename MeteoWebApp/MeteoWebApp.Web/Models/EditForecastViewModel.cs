@@ -115,6 +115,17 @@ namespace MeteoWebApp.Web.Models
                     this.WindDirectionImageUrl = "/Content/Images/WindArrows/NoWind.png";
                     break;
             }
+
+            if (this.WindSpeed == 0)
+            {
+                this.WindDirectionImageUrl = "/Content/Images/WindArrows/NoWind.png";
+                this.WindDirectionEdit = (int)WindDirections.NoWind;
+            }
+
+            if(this.WindDirectionEdit == (int)WindDirections.NoWind)
+            {
+                this.WindSpeed = 0;
+            }
         }
     }
 }
