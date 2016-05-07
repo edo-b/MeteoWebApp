@@ -139,6 +139,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Content\Images\OtherIcons\1459726611_icon-136-document-edit.png" />
     <Content Include="Content\Images\OtherIcons\1459981345_free-27.png" />
+    <Content Include="Content\Images\OtherIcons\delete-icon.png" />
     <Content Include="Content\Images\OtherIcons\edit-icon.png" />
     <Content Include="Content\Images\OtherIcons\rain-icon.png" />
     <Content Include="Content\Images\WeatherImages\Status-weather-clear-icon.png" />
@@ -158,10 +159,12 @@
     <Content Include="Content\Images\WindArrows\NoWind.png" />
     <Content Include="Content\Scripts\bootstrap.min.js" />
     <Content Include="Content\Scripts\EditForecastScript.js" />
+    <Content Include="Content\Scripts\EditWarningScript.js" />
     <Content Include="Content\Scripts\ForecastScript.js" />
     <Content Include="Content\Scripts\jquery-1.12.3.min.js" />
     <Content Include="Content\Scripts\ValidateFormScript.js" />
     <Content Include="Content\Styles\bootstrap.min.css" />
+    <Content Include="Content\Styles\WarningsStyle.css" />
     <Content Include="Content\Styles\LayoutStyle.css" />
     <Content Include="Content\Styles\LoginStyle.css" />
     <Content Include="Global.asax" />
@@ -210,6 +213,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Warning\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\EditWarnings.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

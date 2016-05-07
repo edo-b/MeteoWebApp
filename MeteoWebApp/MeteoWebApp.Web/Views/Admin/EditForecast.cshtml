@@ -4,7 +4,7 @@
 }
 
 <h2>Uredi prognozu - @Model.City</h2>
-<p>Period <strong>@Model.FirstDate.ToString("dd.MM.yyyy") - @Model.FirstDate.AddDays(6).ToString("dd.MM.yyyy")</strong></p>
+
 <div class="row">
     <div class="pull-left">
         @Html.RouteLink("Prethodnih tjedan dana", "EditForecast", new { CityId = @Model.CityId, FirstDate = @Model.FirstDate.AddDays(-7) })
@@ -13,37 +13,104 @@
         @Html.RouteLink("Idućih tjedan dana", "EditForecast", new { CityId = @Model.CityId, FirstDate = @Model.FirstDate.AddDays(7) })
     </div>
 </div>
-
-@if (Model.Forecasts != null && Model.Forecasts.Any())
-{
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-        <table class="table table-striped">
-            @*@for (int i = 0; i < 7; i++)
-            {
-                var forecast = Model.Forecasts.Where(x => DateTime.Compare(x.Date.DateTime, Model.FirstDate.AddDays(i).DateTime) == 0).SingleOrDefault();
-                if (forecast != null)
+<div class="main-content">
+    @if (Model.Forecasts != null && Model.Forecasts.Any())
+    {
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <table class="table table-striped">
+                @*@for (int i = 0; i < 7; i++)
+                    {
+                        var forecast = Model.Forecasts.Where(x => DateTime.Compare(x.Date.DateTime, Model.FirstDate.AddDays(i).DateTime) == 0).SingleOrDefault();
+                        if (forecast != null)
+                        {
+                            <tr class=@(forecast.Date == DateTime.Now ? "success" : "")>
+                                <td id="@String.Format("edit-date-data" + @forecast.Id)" data="@forecast.Date.ToString("dd.MM.yyyy")">@forecast.Date.ToString("dd.MM.yyyy")</td>
+                                <td>
+                                    <img id="@String.Format("edit-general-state-data" + @forecast.Id)" data="@forecast.GeneralState" class="img-responsive" src="@forecast.GeneralStateImageUrl" data-toggle="tooltip" title="@forecast.GeneralStateCaption" data-placement="right" />
+                                </td>
+                                <td id="@String.Format("edit-temperature-data" + @forecast.Id)" data="@forecast.Temperature">@forecast.Temperature °C</td>
+                                <td id="@String.Format("edit-rain-chance-data" + @forecast.Id)" data="@forecast.RainChance">@forecast.RainChance %</td>
+                                <td>
+                                    <img id="@String.Format("edit-wind-direction-data" + @forecast.Id)" data="@forecast.WindDirection" class="img-responsive wind-speed-image" src="@forecast.WindDirectionImageUrl" />
+                                    (<span id="@String.Format("edit-wind-speed-data" + @forecast.Id)" data="@forecast.WindSpeed">@forecast.WindSpeed</span>)
+                                </td>
+                                <td>
+                                    <a class="edit-button" data-toggle="modal" data-target="#edit-popup" data="@forecast.Id"><img src="~/Content/Images/OtherIcons/1459726611_icon-136-document-edit.png" data-toggle="tooltip" title="Uredi"></a>
+                                </td>
+                                <td>
+                                    <a class="delete-button" data-toggle="modal" data-target="#delete-popup" data="@forecast.Id"><img src="~/Content/Images/OtherIcons/1459981345_free-27.png" data-toggle="tooltip" title="Izbriši"></a>
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>
+                                    @Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td><a data-toggle="modal" data-target="#create-popup" data="@Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")" class="btn btn-success create-button">Dodaj</a></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        }
+                    }*@
+                @{var forecastListEnumerator = @Model.Forecasts.GetEnumerator();
+                forecastListEnumerator.MoveNext();}
+                @for (int i = 0; i < 7; i++)
                 {
-                    <tr class=@(forecast.Date == DateTime.Now ? "success" : "")>
-                        <td id="@String.Format("edit-date-data" + @forecast.Id)" data="@forecast.Date.ToString("dd.MM.yyyy")">@forecast.Date.ToString("dd.MM.yyyy")</td>
-                        <td>
-                            <img id="@String.Format("edit-general-state-data" + @forecast.Id)" data="@forecast.GeneralState" class="img-responsive" src="@forecast.GeneralStateImageUrl" data-toggle="tooltip" title="@forecast.GeneralStateCaption" data-placement="right" />
-                        </td>
-                        <td id="@String.Format("edit-temperature-data" + @forecast.Id)" data="@forecast.Temperature">@forecast.Temperature °C</td>
-                        <td id="@String.Format("edit-rain-chance-data" + @forecast.Id)" data="@forecast.RainChance">@forecast.RainChance %</td>
-                        <td>
-                            <img id="@String.Format("edit-wind-direction-data" + @forecast.Id)" data="@forecast.WindDirection" class="img-responsive wind-speed-image" src="@forecast.WindDirectionImageUrl" />
-                            (<span id="@String.Format("edit-wind-speed-data" + @forecast.Id)" data="@forecast.WindSpeed">@forecast.WindSpeed</span>)
-                        </td>
-                        <td>
-                            <a class="edit-button" data-toggle="modal" data-target="#edit-popup" data="@forecast.Id"><img src="~/Content/Images/OtherIcons/1459726611_icon-136-document-edit.png" data-toggle="tooltip" title="Uredi"></a>
-                        </td>
-                        <td>
-                            <a class="delete-button" data-toggle="modal" data-target="#delete-popup" data="@forecast.Id"><img src="~/Content/Images/OtherIcons/1459981345_free-27.png" data-toggle="tooltip" title="Izbriši"></a>
-                        </td>
-                    </tr>
+                    var forecast = forecastListEnumerator.Current;
+                    if (forecast != null && DateTime.Compare(forecast.Date.Date, Model.FirstDate.Date.AddDays(i)) == 0)
+                    {
+                        <tr class=@(forecast.Date == DateTime.Now ? "success" : "")>
+                            <td id="@String.Format("edit-date-data" + @forecast.Id)" data="@forecast.Date.ToString("dd.MM.yyyy")">@forecast.Date.ToString("dd.MM.yyyy")</td>
+                            <td>
+                                <img id="@String.Format("edit-general-state-data" + @forecast.Id)" data="@forecast.GeneralState" class="img-responsive" src="@forecast.GeneralStateImageUrl" data-toggle="tooltip" title="@forecast.GeneralStateCaption" data-placement="right" />
+                            </td>
+                            <td id="@String.Format("edit-temperature-data" + @forecast.Id)" data="@forecast.Temperature">@forecast.Temperature °C</td>
+                            <td id="@String.Format("edit-rain-chance-data" + @forecast.Id)" data="@forecast.RainChance">@forecast.RainChance %</td>
+                            <td>
+                                <img id="@String.Format("edit-wind-direction-data" + @forecast.Id)" data="@forecast.WindDirection" class="img-responsive wind-speed-image" src="@forecast.WindDirectionImageUrl" />
+                                (<span id="@String.Format("edit-wind-speed-data" + @forecast.Id)" data="@forecast.WindSpeed">@forecast.WindSpeed</span>)
+                            </td>
+                            <td>
+                                <a class="edit-button" data-toggle="modal" data-target="#edit-popup" data="@forecast.Id"><img src="~/Content/Images/OtherIcons/1459726611_icon-136-document-edit.png" data-toggle="tooltip" title="Uredi"></a>
+                            </td>
+                            <td>
+                                <a class="delete-button" data-toggle="modal" data-target="#delete-popup" data="@forecast.Id"><img src="~/Content/Images/OtherIcons/1459981345_free-27.png" data-toggle="tooltip" title="Izbriši"></a>
+                            </td>
+                        </tr>
+                        forecastListEnumerator.MoveNext();
+                    }
+                    else
+                    {
+                        <tr>
+                            <td>
+                                @Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td><a data-toggle="modal" data-target="#create-popup" data="@Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")" class="btn btn-success create-button">Dodaj</a></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    }
                 }
-                else
+            </table>
+        </div>
+        <div class="col-md-1"></div>
+    }
+
+    else
+    {
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <table class="table table-striped">
+                @for (int i = 0; i < 7; i++)
                 {
                     <tr>
                         <td>
@@ -57,210 +124,142 @@
                         <td></td>
                     </tr>
                 }
-            }*@
-            @{var forecastListEnumerator = @Model.Forecasts.GetEnumerator();
-              forecastListEnumerator.MoveNext();}
-            @for (int i = 0; i < 7; i++)
-            {
-                var forecast = forecastListEnumerator.Current;
-                if (forecast != null && DateTime.Compare(forecast.Date.Date, Model.FirstDate.Date.AddDays(i)) == 0)
-                {
-                    <tr class=@(forecast.Date == DateTime.Now ? "success" : "")>
-                        <td id="@String.Format("edit-date-data" + @forecast.Id)" data="@forecast.Date.ToString("dd.MM.yyyy")">@forecast.Date.ToString("dd.MM.yyyy")</td>
-                        <td>
-                            <img id="@String.Format("edit-general-state-data" + @forecast.Id)" data="@forecast.GeneralState" class="img-responsive" src="@forecast.GeneralStateImageUrl" data-toggle="tooltip" title="@forecast.GeneralStateCaption" data-placement="right" />
-                        </td>
-                        <td id="@String.Format("edit-temperature-data" + @forecast.Id)" data="@forecast.Temperature">@forecast.Temperature °C</td>
-                        <td id="@String.Format("edit-rain-chance-data" + @forecast.Id)" data="@forecast.RainChance">@forecast.RainChance %</td>
-                        <td>
-                            <img id="@String.Format("edit-wind-direction-data" + @forecast.Id)" data="@forecast.WindDirection" class="img-responsive wind-speed-image" src="@forecast.WindDirectionImageUrl" />
-                            (<span id="@String.Format("edit-wind-speed-data" + @forecast.Id)" data="@forecast.WindSpeed">@forecast.WindSpeed</span>)
-                        </td>
-                        <td>
-                            <a class="edit-button" data-toggle="modal" data-target="#edit-popup" data="@forecast.Id"><img src="~/Content/Images/OtherIcons/1459726611_icon-136-document-edit.png" data-toggle="tooltip" title="Uredi"></a>
-                        </td>
-                        <td>
-                            <a class="delete-button" data-toggle="modal" data-target="#delete-popup" data="@forecast.Id"><img src="~/Content/Images/OtherIcons/1459981345_free-27.png" data-toggle="tooltip" title="Izbriši"></a>
-                        </td>
-                    </tr>
-                    forecastListEnumerator.MoveNext();
-                }
-                else
-                {
-                    <tr>
-                        <td>
-                            @Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")
-                        </td>
-                        <td></td>
-                        <td></td>
-                        <td><a data-toggle="modal" data-target="#create-popup" data="@Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")" class="btn btn-success create-button">Dodaj</a></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                }
-            }
-        </table>
-    </div>
-    <div class="col-md-1"></div>
-}
+            </table>
+        </div>
+        <div class="col-md-1"></div>
+    }
 
-else
-{
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-        <table class="table table-striped">
-            @for (int i = 0; i < 7; i++)
-            {
-                <tr>
-                    <td>
-                        @Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")
-                    </td>
-                    <td></td>
-                    <td></td>
-                    <td><a data-toggle="modal" data-target="#create-popup" data="@Model.FirstDate.AddDays(i).ToString("dd.MM.yyyy")" class="btn btn-success create-button">Dodaj</a></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            }
-        </table>
-    </div>
-    <div class="col-md-1"></div>
-}
+    <!-- Delete popup -->
+    <div id="delete-popup" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!--Content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Obriši</h4>
+                </div>
+                <div class="modal-body">
+                    @using (@Html.BeginForm("DeleteForecastRecord", "Admin", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <p>Jeste li sigurni da želite izbrisati zapis</p>
+                        <input name="ForecastRecordId" type="hidden" id="delete-id-field" value="0" />
+                        <input name="CityId" type="hidden" value="@Model.CityId" />
+                        <input name="FirstDate" type="hidden" value="@Model.FirstDate" />
+                        <button class="close" data-dismiss="modal">Odustani</button>
+                        <input class="btn btn-success" type="submit" value="Izbriši" />
+                    }
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
 
-<!-- Delete popup -->
-<div id="delete-popup" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!--Content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Obriši</h4>
-            </div>
-            <div class="modal-body">
-                @using (@Html.BeginForm("DeleteForecastRecord", "Admin", FormMethod.Post))
-                {
-                    @Html.AntiForgeryToken()
-                    <p>Jeste li sigurni da želite izbrisati zapis</p>
-                    <input name="ForecastRecordId" type="hidden" id="delete-id-field" value="0" />
-                    <input name="CityId" type="hidden" value="@Model.CityId" />
-                    <input name="FirstDate" type="hidden" value="@Model.FirstDate" />
-                    <button class="close" data-dismiss="modal">Odustani</button>
-                    <input class="btn btn-success" type="submit" value="Izbriši" />
-                }
-            </div>
-            <div class="modal-footer">
+        </div>
+    </div>
+
+    <!--Create popup-->
+    <div id="create-popup" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!--Content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Dodaj zapis za <span id="create-date-label"></span></h4>
+                </div>
+                <div class="modal-body">
+                    <div id="create-validation-failed-warning"></div>
+                    @using (@Html.BeginForm("CreateForecastRecord", "Admin", FormMethod.Post, new { onsubmit = "return validateForm('create')" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input name="Date" type="hidden" id="create-date-field" />
+                        <input name="CityId" type="hidden" value="@Model.CityId" />
+                        <input name="FirstDate" type="hidden" value="@Model.FirstDate" />
+                        <div class="form-group">
+                            <label>Temperatura</label>
+                            <input type="number" id="create-temperature-field" name="Temperature" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Vjerojatnost kiše</label>
+                            <input type="number" id="create-rain-chance-field" name="RainChance" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Prognoza</label>
+                            @Html.DropDownList("GeneralState", MeteoWebApp.Web.Helpers.SelectListProviders.GetGeneralStateSelectList(), new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Smjer vjetra</label>
+                            @Html.DropDownList("WindDirection", MeteoWebApp.Web.Helpers.SelectListProviders.GetWindDirectionSelectList(), new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Brzina vjetra</label>
+                            <input type="number" name="WindSpeed" class="form-control" id="create-wind-speed-field" required />
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Dodaj" />
+                        <button class="close" data-dismiss="modal">Odustani</button>
+                    }
+                </div>
+                <div class="modal-footer">
+                </div>
             </div>
         </div>
-
     </div>
-</div>
 
-<!--Create popup-->
-<div id="create-popup" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!--Content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Dodaj zapis za <span id="create-date-label"></span></h4>
-            </div>
-            <div class="modal-body">
-                <div id="create-validation-failed-warning"></div>
-                @using (@Html.BeginForm("CreateForecastRecord", "Admin", FormMethod.Post, new { onsubmit = "return validateForm('create')" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <input name="Date" type="hidden" id="create-date-field"/>
-                    <input name="CityId" type="hidden" value="@Model.CityId" />
-                    <input name="FirstDate" type="hidden" value="@Model.FirstDate" />
-                    <div class="form-group">
-                        <label>Temperatura</label>
-                        <input type="number" id="create-temperature-field" name="Temperature" class="form-control" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Vjerojatnost kiše</label>
-                        <input type="number" id="create-rain-chance-field" name="RainChance" class="form-control" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Prognoza</label>
-                        @Html.DropDownList("GeneralState", MeteoWebApp.Web.Helpers.SelectListProviders.GetGeneralStateSelectList(), new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                        <label>Smjer vjetra</label>
-                        @Html.DropDownList("WindDirection", MeteoWebApp.Web.Helpers.SelectListProviders.GetWindDirectionSelectList(), new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                        <label>Brzina vjetra</label>
-                        <input type="number" name="WindSpeed" class="form-control" id="create-wind-speed-field" required />
-                    </div>
-                    <input type="submit" class="btn btn-primary" value="Dodaj" />
-                    <button class="close" data-dismiss="modal">Odustani</button>
-                }
-            </div>
-            <div class="modal-footer">
+
+    <!--Edit popup-->
+    <div id="edit-popup" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!--Content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Uredi zapis - <span id="edit-date-label"></span></h4>
+                </div>
+                <div class="modal-body">
+                    <div id="edit-validation-failed-warning"></div>
+                    @using (@Html.BeginForm("EditForecastRecord", "Admin", FormMethod.Post, new { onsubmit = "return validateForm('edit')" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <input name="ForecastRecordId" type="hidden" id="edit-id-field" />
+                        <input name="FirstDate" type="hidden" value="@Model.FirstDate" />
+                        <input name="CityId" type="hidden" value="@Model.CityId" />
+                        <div class="form-group">
+                            <label>Temperatura</label>
+                            <input type="number" name="Temperature" class="form-control" id="edit-temperature-field" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Vjerojatnost kiše</label>
+                            <input type="number" name="RainChance" class="form-control" id="edit-rain-chance-field" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Prognoza</label>
+                            @Html.DropDownList("GeneralStateEdit", MeteoWebApp.Web.Helpers.SelectListProviders.GetGeneralStateSelectList(), new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Smjer vjetra</label>
+                            @Html.DropDownList("WindDirectionEdit", MeteoWebApp.Web.Helpers.SelectListProviders.GetWindDirectionSelectList(), new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label>Brzina vjetra</label>
+                            <input type="number" name="WindSpeed" class="form-control" id="edit-wind-speed-field" required />
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Dodaj" />
+                        <button class="close" data-dismiss="modal">Odustani</button>
+                    }
+                </div>
+                <div class="modal-footer">
+                </div>
             </div>
         </div>
     </div>
 </div>
+    @section Css{
 
+    }
 
-<!--Edit popup-->
-<div id="edit-popup" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!--Content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Uredi zapis - <span id="edit-date-label"></span></h4>
-            </div>
-            <div class="modal-body">
-                <div id="edit-validation-failed-warning"></div>
-                @using (@Html.BeginForm("EditForecastRecord", "Admin", FormMethod.Post, new { onsubmit = "return validateForm('edit')" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <input name="ForecastRecordId" type="hidden" id="edit-id-field" />
-                    <input name="FirstDate" type="hidden" value="@Model.FirstDate" />
-                    <input name="CityId" type="hidden" value="@Model.CityId" />
-                    <div class="form-group">
-                        <label>Temperatura</label>
-                        <input type="number" name="Temperature" class="form-control" id="edit-temperature-field" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Vjerojatnost kiše</label>
-                        <input type="number" name="RainChance" class="form-control" id="edit-rain-chance-field" required />
-                    </div>
-                    <div class="form-group">
-                        <label>Prognoza</label>
-                        @Html.DropDownList("GeneralStateEdit", MeteoWebApp.Web.Helpers.SelectListProviders.GetGeneralStateSelectList(), new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                        <label>Smjer vjetra</label>
-                        @Html.DropDownList("WindDirectionEdit", MeteoWebApp.Web.Helpers.SelectListProviders.GetWindDirectionSelectList(), new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                        <label>Brzina vjetra</label>
-                        <input type="number" name="WindSpeed" class="form-control" id="edit-wind-speed-field" required />
-                    </div>
-                    <input type="submit" class="btn btn-primary" value="Dodaj" />
-                    <button class="close" data-dismiss="modal">Odustani</button>
-                }
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div>
+    @section Script{
+        <script src="@Url.Content("~/Content/Scripts/EditForecastScript.js")"></script>
+    }
 
-
-@section Css{
-    
-}
-
-@section Script{
-    <script src="@Url.Content("~/Content/Scripts/EditForecastScript.js")"></script>
-}
-
-@section HeadScripts{
-    <script src="@Url.Content("~/Content/Scripts/ValidateFormScript.js")"></script>
-}
+    @section HeadScripts{
+        <script src="@Url.Content("~/Content/Scripts/ValidateFormScript.js")"></script>
+    }

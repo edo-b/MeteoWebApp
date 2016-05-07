@@ -7,12 +7,9 @@
     vertical-align: middle;
     font-size:18px;
 }
-.table{
+.main-content{
     margin-top:50px;
     margin-bottom:200px;
-}
-.alert{
-    margin-top:50px;
 }
 .logout-button{
     margin-top:8px;

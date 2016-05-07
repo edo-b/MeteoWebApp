@@ -1,4 +1,5 @@
 ﻿using MeteoWebApp.Infrastructure.Forecast;
+using MeteoWebApp.Infrastructure.Warning;
 using MeteoWebApp.Web.Models;
 using System;
 using System.Collections.Generic;
@@ -79,15 +80,43 @@ namespace MeteoWebApp.Web.Controllers
 
             return RedirectToRoute("EditForecast", new { CityId = model.CityId, FirstDate = model.FirstDate });
         }
+
+        public ActionResult EditWarnings(WarningViewModel model)
+        {
+            if(model.PageNumber <= 0)
+            {
+                model.PageNumber = 1;
+            }
+            
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteWarning(int WarningId, int PageNumber)
+        {
+            if(WarningId > 0)
+            {
+                _warningCommands.DeleteWarning(WarningId);
+            }
+            if(PageNumber <= 0)
+            {
+                PageNumber = 1;
+            }
+
+            return RedirectToRoute("EditWarnings", new { PageNumber = PageNumber });
+        }
     }
 
     public partial class AdminController
     {
         private IForecastCommands _forecastCommands;
+        private IWarningCommands _warningCommands;
 
         public AdminController()
         {
             _forecastCommands = new ForecastCommands();
+            _warningCommands = new WarningCommands();
         }
     }
 }

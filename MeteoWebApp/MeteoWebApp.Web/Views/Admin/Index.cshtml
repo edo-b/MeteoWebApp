@@ -4,14 +4,12 @@
 }
 
 <h2>Gradovi</h2>
-
-<br />
-<br />
-
-@foreach (var city in @Model.Cities)
-{
-    <div class="row">
-        <a href="@Url.Action("EditForecast", new { CityId = city.Id})" class="col-md-3 btn btn-primary">@city.Name</a>
-    </div>
-    <br />
-}
+<div class="main-content">
+    @foreach (var city in @Model.Cities)
+    {
+        <div class="row">
+            <a href="@Url.Action("EditForecast", new { CityId = city.Id})" class="col-md-3 btn btn-primary">@city.Name</a>
+        </div>
+        <br />
+    }
+</div>

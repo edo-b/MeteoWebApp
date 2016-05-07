@@ -37,6 +37,7 @@
                     @if (Request.IsAuthenticated)
                     {
                         <li><a href="@Url.RouteUrl("AdminCities")">Uredi prognozu</a></li>
+                        <li><a href="@Url.RouteUrl("EditWarnings", new { PageNumber = 1})">Uredi upozorenja</a></li>
                     }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

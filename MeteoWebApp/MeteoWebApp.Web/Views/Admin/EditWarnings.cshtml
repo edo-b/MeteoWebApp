@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "EditWarnings";
+}
+
+<h2>Uredi upozorenja</h2>
+
+<div class="warning-page-content">
+    @foreach (var warning in Model.Warnings)
+    {
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <a class="pull-right delete-button" data-toggle="modal" data-target="#delete-popup" data="@warning.Id"><img src="~/Content/Images/OtherIcons/delete-icon.png" data-toggle="tooltip" title="Izbriši" /></a>
+                <h3 class="text-primary">@warning.Title</h3>
+                @warning.Text
+                <br />
+                <br />
+                <span class="badge">@warning.PublishedOn.ToString("dd.MM.yyyy")</span>    <span class="pull-right label label-primary">@warning.PublishedBy</span>
+                <hr />
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    }
+    <div class="text-center">
+        <ul class="pagination">
+            @if (Model.PageNumber > 1)
+            {
+                <li>@Html.RouteLink("<", "EditWarnings", new { PageNumber = Model.PageNumber - 1 })</li>
+            }
+            @for (int i = 1; i <= Model.NumberOfPages; i++)
+            {
+                if (i != Model.PageNumber)
+                {
+                    <li>@Html.RouteLink(i.ToString(), "EditWarnings", new { PageNumber = i })</li>
+                }
+                else
+                {
+                    <li class="active"><a>@i</a></li>
+                }
+            }
+            @if (Model.PageNumber < Model.NumberOfPages)
+            {
+                <li>@Html.RouteLink(">", "EditWarnings", new { PageNumber = Model.PageNumber + 1 })</li>
+            }
+        </ul>
+    </div>
+</div>
+
+<!-- Delete popup -->
+<div id="delete-popup" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!--Content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Obriši</h4>
+            </div>
+            <div class="modal-body">
+                @using (@Html.BeginForm("DeleteWarning", "Admin", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <p>Jeste li sigurni da želite izbrisati upozorenje</p>
+                    <input name="WarningId" type="hidden" id="delete-id-field" value="0" />
+                    <input name="PageNumber" type="hidden" value="@Model.PageNumber" />
+                    <button class="close" data-dismiss="modal">Odustani</button>
+                    <input class="btn btn-success" type="submit" value="Izbriši" />
+                }
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Script{
+    <script src="@Url.Content("~/Content/Scripts/EditWarningScript.js")"></script>
+}
+@section Css{
+    <link href="@Url.Content("~/Content/Styles/WarningsStyle.css")" rel="stylesheet">
+}

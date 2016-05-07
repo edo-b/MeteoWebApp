@@ -8,5 +8,6 @@ namespace MeteoWebApp.Infrastructure.Warning
 {
     public interface IWarningCommands
     {
+        void DeleteWarning(int id);
     }
 }
