@@ -9,6 +9,7 @@
         <EntityTypeShape EntityType="DatabaseModel.Forecast" Width="1.5" PointX="3.5" PointY="0.5" />
         <AssociationConnector Association="DatabaseModel.CityForecast" />
         <EntityTypeShape EntityType="DatabaseModel.User" Width="1.5" PointX="0.5" PointY="2.625" />
+        <EntityTypeShape EntityType="DatabaseModel.Warning" Width="1.5" PointX="3.5" PointY="4.125" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

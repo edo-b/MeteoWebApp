@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/21/2016 17:23:22
+-- Date Created: 05/06/2016 14:32:22
 -- Generated from EDMX file: C:\Users\Edo\Desktop\Edo\Programming\Faks\MeteoWebApp\MeteoWebApp\MeteoWebApp.Data\DatabaseModel.edmx
 -- --------------------------------------------------
 
@@ -31,8 +31,11 @@ GO
 IF OBJECT_ID(N'[dbo].[Forecasts]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Forecasts];
 GO
-IF OBJECT_ID(N'[dbo].[UserSet]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[UserSet];
+IF OBJECT_ID(N'[dbo].[Users]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Users];
+GO
+IF OBJECT_ID(N'[dbo].[WarningSet]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[WarningSet];
 GO
 
 -- --------------------------------------------------
@@ -71,6 +74,16 @@ CREATE TABLE [dbo].[Users] (
 );
 GO
 
+-- Creating table 'Warnings'
+CREATE TABLE [dbo].[Warnings] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [TItle] nvarchar(max)  NOT NULL,
+    [Text] nvarchar(max)  NOT NULL,
+    [PublishedOn] datetimeoffset  NOT NULL,
+    [PublishedBy] nvarchar(max)  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -90,6 +103,12 @@ GO
 -- Creating primary key on [Id] in table 'Users'
 ALTER TABLE [dbo].[Users]
 ADD CONSTRAINT [PK_Users]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Warnings'
+ALTER TABLE [dbo].[Warnings]
+ADD CONSTRAINT [PK_Warnings]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 

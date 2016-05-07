@@ -1,0 +1,44 @@
+﻿@model MeteoWebApp.Web.Models.WarningViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Novosti i upozorenja</h2>
+
+@foreach (var warning in Model.Warnings)
+{
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <h3>@warning.Title</h3>
+            @warning.Text
+            <br />
+            <br />
+            <span class="badge">@warning.PublishedOn.ToString("dd.MM.yyyy")</span>    <i class="pull-right">@warning.PublishedBy</i>
+            <hr />
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+}
+
+<ul class="pagination" style="padding-bottom:200px;">
+    @if (Model.PageNumber > 1)
+    {
+        <li>@Html.RouteLink("<", "Warnings", new { PageNumber = Model.PageNumber - 1 })</li>
+    }
+    @for (int i = 1; i <= Model.NumberOfPages; i++)
+    {
+        if (i != Model.PageNumber)
+        {
+            <li>@Html.RouteLink(i.ToString(), "Warnings", new { PageNumber = i })</li>
+        }
+        else
+        {
+            <li class="active"><a>@i</a></li>
+        }
+    }
+    @if (Model.PageNumber < Model.NumberOfPages)
+    {
+        <li>@Html.RouteLink(">", "Warnings", new { PageNumber = Model.PageNumber + 1 })</li>
+    }
+</ul>

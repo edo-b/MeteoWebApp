@@ -74,6 +74,9 @@
     <Compile Include="User.cs">
       <DependentUpon>DatabaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Warning.cs">
+      <DependentUpon>DatabaseModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="DatabaseModel.edmx">

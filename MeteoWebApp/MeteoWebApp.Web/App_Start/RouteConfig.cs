@@ -14,6 +14,7 @@ namespace MeteoWebApp.Web
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute("ViewForecast", "prognoza/{CityId}", new { controller = "Forecast", action = "Index" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
+            routes.MapRoute("Warnings", "upozorenja/{PageNumber}", new { controller = "Warning", action = "Index" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
             routes.MapRoute("AdminCities", "admin/gradovi", new { controller = "Admin", action = "Index" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
             routes.MapRoute("EditForecast", "admin/uredi-prognozu/{CityId}", new { controller = "Admin", action = "EditForecast" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
             routes.MapRoute("EditForecastRecord", "admin/uredi-zapis/{CityId}/{ForecastRecordId}", new { controller = "Admin", action = "EditForecastRecord" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });

@@ -17,6 +17,7 @@ namespace MeteoWebApp.Data.TestDataFactory
                     _insertCities(db);
                     _insertForecasts(db);
                     _insertUsers(db);
+                    _insertWarnings(db);
                 }
 
                 db.SaveChanges();
@@ -361,6 +362,205 @@ namespace MeteoWebApp.Data.TestDataFactory
                     WindDirectionImageUrl = "/Content/Images/WindArrows/ArrowUpLeft.png"
                 }
             }.ToList().ForEach(forecast => db.Forecasts.Add(forecast));
+        }
+
+        private static void _insertWarnings(DatabaseModelContainer db)
+        {
+            new[]
+            {
+                new Warning
+                {
+                    Id = 1,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 5, 1, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 2,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 5, 2, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "vakula"
+                },
+                new Warning
+                {
+                    Id = 3,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 5, 1, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 4,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 4, 1, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 5,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 4, 12, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 6,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 4, 21, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "vakula"
+                },
+                new Warning
+                {
+                    Id = 7,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 5, 3, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 8,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 5, 6, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "vakula"
+                },
+                new Warning
+                {
+                    Id = 9,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 5, 4, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 1,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 5, 5, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "vakula"
+                },
+                new Warning
+                {
+                    Id = 10,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 3, 28, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 11,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 3, 18, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 12,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 4, 6, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 13,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 4, 13, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 14,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 3, 12, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 15,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 4, 30, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 16,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 5, 1, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 17,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 2, 11, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 18,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 2, 5, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 19,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 5, 6, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 20,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 3, 31, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 21,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 3, 2, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 22,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 4, 15, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                },
+                new Warning
+                {
+                    Id = 23,
+                    TItle = "Lorem ipsum",
+                    Text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ut nulla quis dolor volutpat mollis. Proin ligula ex, tincidunt at purus a, mollis posuere eros.",
+                    PublishedOn = new DateTimeOffset(2016, 4, 17, 0, 0, 0, new TimeSpan(0)),
+                    PublishedBy = "admin"
+                }
+            }.ToList().ForEach(x => db.Warnings.Add(x));
         }
     }
 }

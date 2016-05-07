@@ -9,6 +9,7 @@
     <EntitySet Name="Cities" EntityType="DatabaseModel.Store.Cities" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Forecasts" EntityType="DatabaseModel.Store.Forecasts" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Users" EntityType="DatabaseModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Warnings" EntityType="DatabaseModel.Store.Warnings" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="CityForecast" Association="DatabaseModel.Store.CityForecast">
       <End Role="City" EntitySet="Cities" />
       <End Role="Forecast" EntitySet="Forecasts" />
@@ -46,6 +47,16 @@
     <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Salt" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="Warnings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TItle" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PublishedOn" Type="datetimeoffset" Nullable="false" />
+    <Property Name="PublishedBy" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
   <Association Name="CityForecast">
     <End Role="City" Type="DatabaseModel.Store.Cities" Multiplicity="1" />
     <End Role="Forecast" Type="DatabaseModel.Store.Forecasts" Multiplicity="*" />
@@ -70,6 +81,7 @@
             <End Role="Forecast" EntitySet="Forecasts" />
           </AssociationSet>
           <EntitySet Name="Users" EntityType="DatabaseModel.User" />
+          <EntitySet Name="Warnings" EntityType="DatabaseModel.Warning" />
         </EntityContainer>
         <EntityType Name="City">
           <Key>
@@ -117,6 +129,16 @@
           <Property Name="Password" Type="String" Nullable="false" />
           <Property Name="Salt" Type="String" Nullable="false" />
         </EntityType>
+        <EntityType Name="Warning">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TItle" Type="String" Nullable="false" />
+          <Property Name="Text" Type="String" Nullable="false" />
+          <Property Name="PublishedOn" Type="DateTimeOffset" Nullable="false" />
+          <Property Name="PublishedBy" Type="String" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -155,6 +177,17 @@
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Salt" ColumnName="Salt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warnings">
+      <EntityTypeMapping TypeName="IsTypeOf(DatabaseModel.Warning)">
+        <MappingFragment StoreEntitySet="Warnings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TItle" ColumnName="TItle" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="PublishedOn" ColumnName="PublishedOn" />
+          <ScalarProperty Name="PublishedBy" ColumnName="PublishedBy" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
