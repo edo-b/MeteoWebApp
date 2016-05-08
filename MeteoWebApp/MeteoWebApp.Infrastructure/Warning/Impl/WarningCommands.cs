@@ -22,5 +22,22 @@ namespace MeteoWebApp.Infrastructure.Warning
                 }
             }
         }
+
+        public void CreateWarning(string title, string text, string createdBy, DateTimeOffset createdOn)
+        {
+            using(var db = new DatabaseModelContainer())
+            {
+                var newWarning = new MeteoWebApp.Data.Warning
+                {
+                    TItle = title,
+                    Text = text,
+                    PublishedBy = createdBy,
+                    PublishedOn = createdOn
+                };
+
+                db.Warnings.Add(newWarning);
+                db.SaveChanges();
+            }
+        }
     }
 }

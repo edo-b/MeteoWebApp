@@ -106,6 +106,27 @@ namespace MeteoWebApp.Web.Controllers
 
             return RedirectToRoute("EditWarnings", new { PageNumber = PageNumber });
         }
+
+        public ActionResult CreateWarning()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("CreateWarning")]
+        public ActionResult CreateWarning_post(CreateWarningViewModel model)
+        {
+            if(model.ValidateInputValues())
+            {
+                var publishedOn = new DateTimeOffset(DateTime.Now);
+                var publishedBy = User.Identity.Name;
+
+                _warningCommands.CreateWarning(model.Title, model.Text, publishedBy, publishedOn);
+            }
+
+            return RedirectToRoute("EditWarnings", new { PageNumber = 1 });
+        }
     }
 
     public partial class AdminController

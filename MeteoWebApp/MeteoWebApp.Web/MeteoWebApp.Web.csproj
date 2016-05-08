@@ -127,6 +127,7 @@
     <Compile Include="Helpers\SelectListProviders.cs" />
     <Compile Include="Models\AdminCitiesViewModel.cs" />
     <Compile Include="Models\CreateForecastViewModel.cs" />
+    <Compile Include="Models\CreateWarningViewModel.cs" />
     <Compile Include="Models\DeleteForecastViewModel.cs" />
     <Compile Include="Models\EditForecastViewModel.cs" />
     <Compile Include="Models\ForecastViewModel.cs" />
@@ -216,6 +217,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Admin\EditWarnings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\CreateWarning.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

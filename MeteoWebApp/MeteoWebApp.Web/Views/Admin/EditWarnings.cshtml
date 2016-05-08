@@ -5,6 +5,10 @@
 <h2>Uredi upozorenja</h2>
 
 <div class="warning-page-content">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <a href="@Url.RouteUrl("CreateWarning")" class="btn btn-success">Dodaj novo upozorenje</a>
+    </div>
     @foreach (var warning in Model.Warnings)
     {
         <div class="row">

@@ -22,7 +22,8 @@ namespace MeteoWebApp.Web
             routes.MapRoute("Warnings", "upozorenja/{PageNumber}", new { controller = "Warning", action = "Index" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
             routes.MapRoute("EditWarnings", "uredi-upozorenja/{PageNumber}", new { controller = "Admin", action = "EditWarnings" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
             routes.MapRoute("DeleteWarning", "izbriši-upozorenje/{WarningId}/{PageNumber}", new { controller = "Admin", action = "DeleteWarning" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
-            
+            routes.MapRoute("CreateWarning", "dodaj-upozorenje", new { controller = "Admin", action = "CreateWarning" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
+
             routes.MapRoute("AdminCities", "admin/gradovi", new { controller = "Admin", action = "Index" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
 
             routes.MapRoute("Login", "login", new { controller = "Account", action = "Login" }, namespaces: new[] { "MeteoWebApp.Web.Controllers" });
