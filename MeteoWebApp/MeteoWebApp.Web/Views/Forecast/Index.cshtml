@@ -30,12 +30,21 @@ else
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Datum</th>
+                        <th>Prognoza</th>
+                        <th>Temperatura</th>
+                        <th>Vjerojatnost kiše</th>
+                        <th>Vjetar</th>
+                    </tr>
+                </thead>
                 @for (int i = 0; i < 7; i++)
                 {
                     var forecast = Model.Forecasts.SingleOrDefault(x => DateTime.Compare(x.Date.Date, Model.FirstDate.AddDays(i).Date) == 0);
                     if (forecast != null)
                     {
-                        <tr class=@(forecast.Date == DateTime.Now ? "success" : "" )>
+                        <tr class=@(DateTime.Compare(forecast.Date.Date, DateTime.Now) == 0 ? "success" : "" )>
                             <td>@forecast.Date.ToString("dd.MM.yyyy")</td>
                             <td>
                                 <img class="img-responsive" src="@forecast.GeneralStateImageUrl" data-toggle="tooltip" title="@forecast.GeneralStateCaption" data-placement="right" />

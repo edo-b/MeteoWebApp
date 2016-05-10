@@ -19,6 +19,15 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
             <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Datum</th>
+                        <th>Prognoza</th>
+                        <th>Temperatura</th>
+                        <th>Vjerojatnost kiše</th>
+                        <th>Vjetar</th>
+                    </tr>
+                </thead>
                 @*@for (int i = 0; i < 7; i++)
                     {
                         var forecast = Model.Forecasts.Where(x => DateTime.Compare(x.Date.DateTime, Model.FirstDate.AddDays(i).DateTime) == 0).SingleOrDefault();

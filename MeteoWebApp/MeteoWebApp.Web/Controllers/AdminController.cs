@@ -107,11 +107,6 @@ namespace MeteoWebApp.Web.Controllers
             return RedirectToRoute("EditWarnings", new { PageNumber = PageNumber });
         }
 
-        public ActionResult CreateWarning()
-        {
-            return View();
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("CreateWarning")]

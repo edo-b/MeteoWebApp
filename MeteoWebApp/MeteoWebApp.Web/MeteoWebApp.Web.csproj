@@ -218,9 +218,6 @@
   <ItemGroup>
     <Content Include="Views\Admin\EditWarnings.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Admin\CreateWarning.cshtml" />
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

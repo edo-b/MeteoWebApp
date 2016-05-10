@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "EditWarnings";
+    ViewBag.Title = "Uredi upozorenja | MeteoWebApp";
 }
 
 <h2>Uredi upozorenja</h2>
@@ -7,7 +7,7 @@
 <div class="warning-page-content">
     <div class="row">
         <div class="col-md-2"></div>
-        <a href="@Url.RouteUrl("CreateWarning")" class="btn btn-success">Dodaj novo upozorenje</a>
+        <a id="create-button" class="btn btn-success" data-toggle="modal" data-target="#create-popup">Dodaj novo upozorenje</a>
     </div>
     @foreach (var warning in Model.Warnings)
     {
@@ -75,6 +75,39 @@
         </div>
     </div>
 </div>
+
+<!--Create popup-->
+<div id="create-popup" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!--Content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Dodaj novo upozorenje</h4>
+            </div>
+            <div class="modal-body">
+                @using (@Html.BeginForm("CreateWarning", "Admin", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label>Naslov</label>
+                        <input id="create-title-field" type="text" name="Title" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Tekst</label>
+                        @Html.TextArea("Text", new { @class = "form-control", maxlength = 1000, required = true, id = "create-text-field" })
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Dodaj" />
+                    <button class="close" data-dismiss="modal">Odustani</button>
+                }
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 @section Script{
     <script src="@Url.Content("~/Content/Scripts/EditWarningScript.js")"></script>
