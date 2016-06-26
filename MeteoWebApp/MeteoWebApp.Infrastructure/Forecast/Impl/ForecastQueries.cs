@@ -34,7 +34,8 @@ namespace MeteoWebApp.Infrastructure.Forecast
                                     });
                 if(dbForecast != null)
                 {
-                    return dbForecast.ToList();
+                    var test = dbForecast.ToList();
+                    return test;
                 }
                 
                 return null;

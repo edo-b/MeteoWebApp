@@ -17,12 +17,14 @@ namespace MeteoWebApp.Web.Controllers
         {
             if(model.FirstDate == null || model.FirstDate.Year < 2016)
             {
-                model.FirstDate = new DateTimeOffset(new DateTime(2016, 3, 18));
+                model.FirstDate = new DateTimeOffset(DateTime.Now);
             }
             if(model.CityId <= 0)
             {
                 model.CityId = 1;
             }
+
+            model.FirstDate = new DateTimeOffset(model.FirstDate.Date, new TimeSpan(0));
             
             return View(model);
         }
